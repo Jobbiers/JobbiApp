@@ -1,14 +1,14 @@
-import { Text } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { createStackNavigator } from '@react-navigation/stack';
+import WelcomePage from '../Screens/WelcomePage';
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 
 export const AuthRoutes = () => {
     return (
         <>
-        {/* <Stack.Navigator>
-            
-        </Stack.Navigator> */}
+            <Stack.Navigator initialRouteName='WelcomePage'>
+                <Stack.Screen name='WelcomePage' component={ WelcomePage } options={{ headerShown: false }}/>
+            </Stack.Navigator>
         </>
     )
 }

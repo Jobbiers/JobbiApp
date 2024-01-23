@@ -1,10 +1,10 @@
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { memo } from "react";
-import PopButton from "../Components/PopButton";
+import PopButton from "../components/PopButton";
 import { Text, Image, View, StyleSheet, Dimensions } from "react-native";
 
-const {width, height} = Dimensions.get("screen")
+const { width } = Dimensions.get("screen")
 
 const WelcomePage = () => {
 

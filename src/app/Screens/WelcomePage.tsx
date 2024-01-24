@@ -1,31 +1,38 @@
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { memo } from "react";
-import PopButton from "../components/PopButton";
 import { Text, Image, View, StyleSheet, Dimensions } from "react-native";
+import { getLocales } from 'expo-localization';
+import { I18n } from 'i18n-js';
+import PopButton from "../Components/PopButton";
+import {traductions} from '../../../assets/i18n/traductions'
+
 
 const { width } = Dimensions.get("screen")
+const i18n = new I18n(traductions);
 
 const WelcomePage = () => {
+
+    i18n.locale = getLocales()[0].languageCode;
 
     const [fontsLoaded] = useFonts({
         Comforta: require('../../../assets/fonts/Comfortaa-VariableFont_wght.ttf'),
         ComfortaBold: require('../../../assets/fonts/Comfortaa-Bold.ttf'),
         Inter: require('../../../assets/fonts/Inter-VariableFont_slnt,wght.ttf'),
-      });
+    });
 
     return fontsLoaded && (
         <>
-            <LinearGradient style={{flex: 1}} colors={["#B6A4FF", "#C4C1D0"]} locations={[0, 1]}>
-                <View style={{height: "90%", justifyContent: "space-between", padding: 20}}>
-                    <View style={{justifyContent: "flex-start", alignItems: 'flex-start', paddingTop: 30}}>
-                        <Image style={{height: 150}} source={require("../../../assets/Jobbi-small.png")} />
+            <LinearGradient style={{ flex: 1 }} colors={["#B6A4FF", "#C4C1D0"]} locations={[0, 1]}>
+                <View style={{ height: "90%", justifyContent: "space-between", padding: 20 }}>
+                    <View style={{ justifyContent: "flex-start", alignItems: 'flex-start', paddingTop: 30 }}>
+                        <Image style={{ height: 150 }} source={require("../../../assets/Jobbi-small.png")} />
                         <Text style={[styles.text]}>Bienvenido</Text>
                         <Text style={[styles.subTitle]}>Un paso mas cerca de pedir tu servicio</Text>
                     </View>
-                    <View style={{justifyContent: "space-between", height: "20%"}}>
+                    <View style={{ justifyContent: "space-between", height: "20%" }}>
                         <Text style={[styles.buttonDescription]}>¿Estas listo?</Text>
-                        <PopButton button_styles={styles.button} button_text_styles={styles.buttonText} title="COMENZAR" />
+                        <PopButton button_styles={styles.button} button_text_styles={styles.buttonText} title={i18n.t('general.begin')} />
                     </View>
                 </View>
             </LinearGradient>
@@ -37,12 +44,12 @@ export default memo(WelcomePage)
 
 const styles = StyleSheet.create({
     text: {
-        color: "#703AB6", 
+        color: "#703AB6",
         fontSize: 44,
         fontFamily: "ComfortaBold",
     },
     subTitle: {
-        color: "#703AB6", 
+        color: "#703AB6",
         fontSize: 20,
         fontFamily: "Comforta",
     },
@@ -65,7 +72,7 @@ const styles = StyleSheet.create({
         fontFamily: "ComfortaBold",
         fontSize: 25,
         paddingBottom: 15,
-        textAlign: 'center',        
+        textAlign: 'center',
     },
     title: {
         color: "white",
@@ -79,7 +86,7 @@ const styles = StyleSheet.create({
             height: 4,
         },
         textShadowRadius: 4,
-        backgroundColor : "#0000",
+        backgroundColor: "#0000",
         elevation: 4,
     }
-  });
+});

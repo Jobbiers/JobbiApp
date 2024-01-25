@@ -1,18 +1,29 @@
 {
-    "name": "jobbiapp",
-    "version": "1.0.0",
-    "description": "JobbiApp monorepo",
-    "private": true,
-    "scripts": {
-        "start:clients": "yarn workspace clients start",
-        "start:partners": "yarn workspace partners start"
-    },
-    "license": "ISC",
-    "workspaces": {
-      "packages": [
-        "clients",
-        "partners",
-        "common"
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "start": "turbo run start",
+    "build": "turbo run build",
+    "clean": "turbo run clean && rm -rf node_modules",
+    "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
+    "expo:clients": "pnpm --filter clients dev",
+    "turbo:clients": "turbo --filter clients dev"
+  },
+  "devDependencies": {
+    "prettier": "^3.1.1",
+    "turbo": "latest"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@babel/*",
+        "expo-modules-*",
+        "typescript"
       ]
     }
-  }
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "pnpm@7.18.2"
+}

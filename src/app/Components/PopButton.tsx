@@ -1,8 +1,9 @@
-import React, {FunctionComponent, useEffect, useRef} from 'react';
-import {View, StyleSheet, Pressable, Text, Animated} from 'react-native';
-import { PopButtonInterfaceProps } from './Interfaces/PopButton.interface';
+import React, { useEffect, useRef } from 'react';
+import { View, StyleSheet, Pressable, Text, Animated } from 'react-native';
+import { PopButtonInterfaceProps } from '../interfaces/components/PopButton.interface';
+import { memo } from 'react';
 
-const PopButton = ({button_styles, button_text_styles, title="", bounce= 10, speed= 1}: PopButtonInterfaceProps) => {
+const PopButton = ({ button_styles, button_text_styles, title = "", bounce = 10, speed = 1 }: PopButtonInterfaceProps) => {
   const animatedScale = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -23,7 +24,7 @@ const PopButton = ({button_styles, button_text_styles, title="", bounce= 10, spe
     <View style={style.container}>
       <Pressable onPressIn={handleOnPress}>
         <Animated.View
-          style={[button_styles, {transform: [{scale: animatedScale}]}]}>
+          style={[button_styles, { transform: [{ scale: animatedScale }] }]}>
           <Text style={button_text_styles}>{title}</Text>
         </Animated.View>
       </Pressable>
@@ -51,4 +52,4 @@ const style = StyleSheet.create({
   },
 });
 
-export default PopButton;
+export default memo(PopButton);

@@ -3,7 +3,7 @@ import { View, StyleSheet, Pressable, Text, Animated } from 'react-native';
 import { PopButtonInterfaceProps } from '../interfaces/components/PopButton.interface';
 import { memo } from 'react';
 
-const PopButton = ({ button_styles, button_text_styles, title = "", bounce = 10, speed = 1 }: PopButtonInterfaceProps) => {
+const PopButton = ({ button_styles, button_text_styles, title = "", bounce = 10, speed = 1, onPress }: PopButtonInterfaceProps) => {
   const animatedScale = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
@@ -18,6 +18,7 @@ const PopButton = ({ button_styles, button_text_styles, title = "", bounce = 10,
       speed: speed,
       useNativeDriver: true,
     }).start();
+    onPress();
   };
 
   return (

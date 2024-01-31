@@ -6,7 +6,7 @@ import { Text, Image, View, StyleSheet, Dimensions } from "react-native";
 import { getLocales } from 'expo-localization';
 import { I18n } from 'i18n-js';
 import { PopButton } from "@repo/ui/src/components";
-import {traductions} from '../../../assets/i18n/traductions'
+import { traductions } from '../../../assets/i18n/traductions'
 
 
 const { width } = Dimensions.get("screen")

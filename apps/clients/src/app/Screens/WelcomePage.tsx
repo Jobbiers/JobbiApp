@@ -6,11 +6,11 @@ import { Text, Image, View, StyleSheet, Dimensions } from "react-native";
 import { getLocales } from 'expo-localization';
 import { I18n } from 'i18n-js';
 import { PopButton } from "@repo/ui/src/components";
-import { traductions } from '../../../assets/i18n/traductions'
+import { translations } from '@repo/common/src/i18n';
 
 
 const { width } = Dimensions.get("screen")
-const i18n = new I18n(traductions);
+const i18n = new I18n(translations);
 
 const WelcomePage = ({navigation}) => {
 

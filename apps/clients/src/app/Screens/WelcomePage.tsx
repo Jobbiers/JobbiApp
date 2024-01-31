@@ -12,7 +12,7 @@ import { traductions } from '../../../assets/i18n/traductions'
 const { width } = Dimensions.get("screen")
 const i18n = new I18n(traductions);
 
-const WelcomePage = () => {
+const WelcomePage = ({navigation}) => {
 
     i18n.locale = getLocales()[0].languageCode;
 
@@ -33,7 +33,7 @@ const WelcomePage = () => {
                     </View>
                     <View style={{ justifyContent: "space-between", height: "20%" }}>
                         <Text style={[styles.buttonDescription]}>¿Estas listo?</Text>
-                        <PopButton button_styles={styles.button} button_text_styles={styles.buttonText} title={i18n.t('general.begin')} />
+                        <PopButton button_styles={styles.button} button_text_styles={styles.buttonText} title={i18n.t('general.begin')} onPress={() => navigation.navigate("LoginPage")}/>
                     </View>
                 </View>
             </LinearGradient>

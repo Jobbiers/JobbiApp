@@ -5,6 +5,6 @@ export interface PopButtonInterfaceProps {
     button_text_styles?: TextStyle, 
     title?: string, 
     bounce?: number, 
-    speed?: number
-    onPress?: () => void;
+    speed?: number,
+    onPress: () => void
 }

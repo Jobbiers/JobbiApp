@@ -1,6 +1,6 @@
 import React, {FunctionComponent, useEffect, useRef} from 'react';
 import {View, StyleSheet, Pressable, Text, Animated} from 'react-native';
-import { PopButtonInterfaceProps } from '../Interfaces/PopButton.interface';
+import { PopButtonInterfaceProps } from './Interfaces/PopButton.interface';
 
 const PopButton = ({button_styles, button_text_styles, title="", bounce= 10, speed= 1}: PopButtonInterfaceProps) => {
   const animatedScale = useRef(new Animated.Value(0)).current;

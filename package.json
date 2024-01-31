@@ -7,7 +7,9 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "expo:clients": "pnpm --filter clients dev",
-    "turbo:clients": "turbo --filter clients dev"
+    "turbo:clients": "turbo --filter clients dev",
+    "expo:partners": "pnpm --filter partners dev",
+    "turbo:partners": "turbo --filter partners dev"
   },
   "devDependencies": {
     "prettier": "^3.1.1",

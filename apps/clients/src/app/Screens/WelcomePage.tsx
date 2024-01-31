@@ -1,7 +1,8 @@
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import React, { memo } from "react";
-import PopButton from "@repo/ui/src/components/PopButton";
+import { PopButton } from "@repo/ui/src/components";
+
 import { Text, Image, View, StyleSheet, Dimensions } from "react-native";
 
 const {width, height} = Dimensions.get("screen")

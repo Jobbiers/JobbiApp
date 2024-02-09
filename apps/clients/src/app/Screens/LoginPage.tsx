@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { TextInput, View, StyleSheet, Dimensions } from "react-native"
-import { PopButton } from "@repo/ui/src/components";
+import { PopButton } from "@jobbi/ui/src/components";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const { width, height } = Dimensions.get("screen")

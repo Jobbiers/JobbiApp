@@ -5,8 +5,8 @@ import React, { memo } from "react";
 import { Text, Image, View, StyleSheet, Dimensions } from "react-native";
 import { getLocales } from 'expo-localization';
 import { I18n } from 'i18n-js';
-import { PopButton } from "@repo/ui/src/components";
-import { translations } from '@repo/common/src/i18n';
+import { PopButton } from "@jobbi/ui/src/components";
+import { translations } from '@jobbi/common/src/i18n';
 
 
 const { width } = Dimensions.get("screen")

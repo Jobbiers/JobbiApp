@@ -1,5 +1,5 @@
 {
-  "name": "@repo/ui",
+  "name": "@jobbi/ui",
   "version": "0.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -9,14 +9,19 @@
     "clean": "rm -rf dist"
   },
   "devDependencies": {
+    "@jobbi/typescript-config": "workspace:*",
+    "@tamagui/build": "latest",
     "@types/react": "^18.2.46",
     "@types/react-native": "^0.73.0",
-    "@repo/typescript-config": "workspace:*",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "@tamagui/babel-plugin": "^1.89.7",
+    "@tamagui/config": "^1.89.17",
+    "@tamagui/core": "^1.88.23",
     "react": "^18.2.0",
-    "react-native": "^0.73.1"
+    "react-native": "^0.73.1",
+    "tamagui": "^1.88.23"
   }
 }

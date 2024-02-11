@@ -1,25 +1,40 @@
-import React from 'react'
-import { StyleSheet, Text, View } from 'react-native';
-import { Routes } from './src/app/routes/Routes';
+import React from 'react';
+import { StyleSheet, useColorScheme } from 'react-native';
+
+import { useFonts } from 'expo-font';
+import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { SafeAreaView } from 'react-native-safe-area-context';
+
+import { Routes } from './src/app/routes/Routes';
+import { ThemeProvider } from '@jobbi/ui/src/theme';
+import { Box } from '@jobbi/ui/src/components/Box';
 
 
 export default function App() {
+  const [loaded] = useFonts({
+    Inter: require('@tamagui/font-inter/otf/Inter-Medium.otf'),
+    InterBold: require('@tamagui/font-inter/otf/Inter-Bold.otf'),
+  });
+
+  const scheme = useColorScheme();
+
+  if (!loaded) {
+    return null;
+  }
 
   return (
-    <>
-      <GestureHandlerRootView style={{ flex: 1 }}>
-        {true && <Routes />}
-      </GestureHandlerRootView>
-    </>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider scheme={scheme || 'light'}>
+        <StatusBar style='auto'/>
+        <Box type='flat' p='$0' m='$0' style={{ flex: 1 }}>
+          <SafeAreaView style={{ flex: 1 }}>
+            {true && <Routes />}
+          </SafeAreaView>
+        </Box>
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-});
+const styles = StyleSheet.create({});

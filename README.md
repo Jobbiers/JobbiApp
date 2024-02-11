@@ -47,9 +47,9 @@ This Turborepo includes the following packages/apps:
 - `clients`: a [react-native](https://reactnative.dev/) app built with [expo](https://docs.expo.dev/) for users
 - `partners`: a [react-native](https://reactnative.dev/) app built with [expo](https://docs.expo.dev/) for partners
 - `web`: a [Next.js](https://nextjs.org/) app built with [react-native-web](https://necolas.github.io/react-native-web/)
-- `@repo/ui`: a stub [react-native](https://reactnative.dev/) component library shared by both `web` and `native` applications
-- `@repo/common`: a set of functions and helpers for all applications
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
+- `@jobbi/ui`: a stub [react-native](https://reactnative.dev/) component library shared by both `web` and `native` applications
+- `@jobbi/common`: a set of functions and helpers for all applications
+- `@jobbi/typescript-config`: `tsconfig.json`s used throughout the monorepo
 
 ### Utilities
 

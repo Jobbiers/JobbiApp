@@ -12,9 +12,9 @@ import { translations } from '@jobbi/common/src/i18n';
 const { width } = Dimensions.get("screen")
 const i18n = new I18n(translations);
 
-const WelcomePage = ({navigation}) => {
+const WelcomePage = ({navigation}: any) => {
 
-    i18n.locale = getLocales()[0].languageCode;
+    i18n.locale = getLocales()[0].languageCode!;
 
     const [fontsLoaded] = useFonts({
         Comforta: require('../../../assets/fonts/Comfortaa-VariableFont_wght.ttf'),

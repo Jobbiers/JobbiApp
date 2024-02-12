@@ -7,10 +7,13 @@ import { StatusBar } from 'expo-status-bar';
 
 const { width, height } = Dimensions.get("screen");
 
-const LoginPage = ({navigation}: any) => {
+const SignUpPage = ({navigation}: any) => {
 
-    const [ text, setText ] = useState("");
-    const [ psw, setPsw ] = useState("");
+    const [ name, setName ] = useState("");
+    const [ surName, setSurName ] = useState("");
+    const [ phone, setPhone] = useState("");
+    const [ email, setEmail] = useState("");
+    const [ password, setPassword] = useState("");
     const [focusedInput, setFocusedInput] = useState("");
 
     return (
@@ -18,42 +21,66 @@ const LoginPage = ({navigation}: any) => {
             <StatusBar />
             <View style={{height: height * 0.25}}>
                 <Image style={{ height: 80 }} source={require("../../../assets/Jobbi-small.png")} />
-                <Text style={styles.title}>Iniciar Sesión</Text>
+                <Text style={styles.title}>¡Creá tu cuenta!</Text>
             </View>
             <View style={{height: height * 0.60, alignItems: 'center' }}>
                 <DropShadow style={focusedInput == "username" && styles.shadowProp}>
                     <TextInput 
-                    onChangeText={setText}
+                    onChangeText={setName}
                     onFocus={() => setFocusedInput("username")}
-                    value={text} 
+                    value={name} 
                     style={styles.input}
                     placeholder="Username"
                     />
                 </DropShadow>
-                <DropShadow style={focusedInput == "password" && styles.shadowProp}>
+                <DropShadow style={focusedInput == "surname" && styles.shadowProp}>
                     <TextInput 
-                    onChangeText={setPsw}
-                    onFocus={() => setFocusedInput("password")}
-                    value={psw}
-                    keyboardType="visible-password" 
-                    style={[styles.input]}
-                    placeholder="Password"
+                    onChangeText={setSurName}
+                    onFocus={() => setFocusedInput("surname")}
+                    value={surName} 
+                    style={styles.input}
+                    placeholder="Apellido"
                     />
                 </DropShadow>
-                <Pressable>
-                    <Text style={[styles.text]}>Olvidé mi contraseña</Text>
-                </Pressable>
+                <DropShadow style={focusedInput == "phone" && styles.shadowProp}>
+                    <TextInput 
+                    onChangeText={setPhone}
+                    onFocus={() => setFocusedInput("phone")}
+                    value={phone} 
+                    style={styles.input}
+                    placeholder="Teléfono"
+                    />
+                </DropShadow>
+                <DropShadow style={focusedInput == "email" && styles.shadowProp}>
+                    <TextInput 
+                    onChangeText={setEmail}
+                    onFocus={() => setFocusedInput("email")}
+                    value={email} 
+                    style={styles.input}
+                    placeholder="Email"
+                    />
+                </DropShadow>
+                <DropShadow style={focusedInput == "password" && styles.shadowProp}>
+                    <TextInput 
+                    onChangeText={setPassword}
+                    onFocus={() => setFocusedInput("password")}
+                    value={password}
+                    keyboardType="visible-password" 
+                    style={[styles.input]}
+                    placeholder="Contraseña"
+                    />
+                </DropShadow>
                 <View style={styles.buttonContainer}>
                     <PopButton
                         onPress={() => console.log("pressed")}
-                        title="Iniciar Sesion"
+                        title="Registrarse"
                         button_styles={styles.button}
                         button_text_styles={styles.buttonText}
                     />
                 </View>
                 <View style={{flex: 1, marginTop: 75, flexDirection: "row"}}>
-                    <Text>¿Aún no tienes cuenta?</Text>
-                    <Text style={styles.textPressable} onPress={() => navigation.navigate("SignUpPage")}> Registrarse</Text>
+                    <Text>¿Ya tienes cuenta?</Text>
+                    <Text style={styles.textPressable} onPress={() => navigation.navigate("LoginPage")}> Inicia sesión</Text>
                 </View>
             </View>
         </SafeAreaView>
@@ -122,4 +149,4 @@ const styles = StyleSheet.create({
       },
 })
 
-export default LoginPage;
+export default SignUpPage;

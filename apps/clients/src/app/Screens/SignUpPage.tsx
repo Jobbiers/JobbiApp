@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { TextInput, View, StyleSheet, Dimensions, Text, Image, Pressable } from "react-native"
+import { TextInput, View, StyleSheet, Dimensions, Text, Image, TouchableWithoutFeedback, Keyboard } from "react-native"
 import { PopButton } from "@repo/ui/src/components";
 import DropShadow from "react-native-drop-shadow";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -7,83 +7,85 @@ import { StatusBar } from 'expo-status-bar';
 
 const { width, height } = Dimensions.get("screen");
 
-const SignUpPage = ({navigation}: any) => {
+const SignUpPage = ({ navigation }: any) => {
 
-    const [ name, setName ] = useState("");
-    const [ surName, setSurName ] = useState("");
-    const [ phone, setPhone] = useState("");
-    const [ email, setEmail] = useState("");
-    const [ password, setPassword] = useState("");
+    const [name, setName] = useState("");
+    const [surName, setSurName] = useState("");
+    const [phone, setPhone] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
     const [focusedInput, setFocusedInput] = useState("");
 
     return (
-        <SafeAreaView style={styles.main}>
-            <StatusBar />
-            <View style={{height: height * 0.25}}>
-                <Image style={{ height: 80 }} source={require("../../../assets/Jobbi-small.png")} />
-                <Text style={styles.title}>¡Creá tu cuenta!</Text>
-            </View>
-            <View style={{height: height * 0.60, alignItems: 'center' }}>
-                <DropShadow style={focusedInput == "username" && styles.shadowProp}>
-                    <TextInput 
-                    onChangeText={setName}
-                    onFocus={() => setFocusedInput("username")}
-                    value={name} 
-                    style={styles.input}
-                    placeholder="Username"
-                    />
-                </DropShadow>
-                <DropShadow style={focusedInput == "surname" && styles.shadowProp}>
-                    <TextInput 
-                    onChangeText={setSurName}
-                    onFocus={() => setFocusedInput("surname")}
-                    value={surName} 
-                    style={styles.input}
-                    placeholder="Apellido"
-                    />
-                </DropShadow>
-                <DropShadow style={focusedInput == "phone" && styles.shadowProp}>
-                    <TextInput 
-                    onChangeText={setPhone}
-                    onFocus={() => setFocusedInput("phone")}
-                    value={phone} 
-                    style={styles.input}
-                    placeholder="Teléfono"
-                    />
-                </DropShadow>
-                <DropShadow style={focusedInput == "email" && styles.shadowProp}>
-                    <TextInput 
-                    onChangeText={setEmail}
-                    onFocus={() => setFocusedInput("email")}
-                    value={email} 
-                    style={styles.input}
-                    placeholder="Email"
-                    />
-                </DropShadow>
-                <DropShadow style={focusedInput == "password" && styles.shadowProp}>
-                    <TextInput 
-                    onChangeText={setPassword}
-                    onFocus={() => setFocusedInput("password")}
-                    value={password}
-                    keyboardType="visible-password" 
-                    style={[styles.input]}
-                    placeholder="Contraseña"
-                    />
-                </DropShadow>
-                <View style={styles.buttonContainer}>
-                    <PopButton
-                        onPress={() => console.log("pressed")}
-                        title="Registrarse"
-                        button_styles={styles.button}
-                        button_text_styles={styles.buttonText}
-                    />
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
+            <SafeAreaView style={styles.main}>
+                <StatusBar />
+                <View style={{ height: height * 0.25 }}>
+                    <Image style={{ height: 80 }} source={require("../../../assets/Jobbi-small.png")} />
+                    <Text style={styles.title}>¡Creá tu cuenta!</Text>
                 </View>
-                <View style={{flex: 1, marginTop: 75, flexDirection: "row"}}>
-                    <Text>¿Ya tienes cuenta?</Text>
-                    <Text style={styles.textPressable} onPress={() => navigation.navigate("LoginPage")}> Inicia sesión</Text>
+                <View style={{ height: height * 0.60, alignItems: 'center' }}>
+                    <DropShadow style={focusedInput == "username" && styles.shadowProp}>
+                        <TextInput
+                            onChangeText={setName}
+                            onFocus={() => setFocusedInput("username")}
+                            value={name}
+                            style={styles.input}
+                            placeholder="Username"
+                        />
+                    </DropShadow>
+                    <DropShadow style={focusedInput == "surname" && styles.shadowProp}>
+                        <TextInput
+                            onChangeText={setSurName}
+                            onFocus={() => setFocusedInput("surname")}
+                            value={surName}
+                            style={styles.input}
+                            placeholder="Apellido"
+                        />
+                    </DropShadow>
+                    <DropShadow style={focusedInput == "phone" && styles.shadowProp}>
+                        <TextInput
+                            onChangeText={setPhone}
+                            onFocus={() => setFocusedInput("phone")}
+                            value={phone}
+                            style={styles.input}
+                            placeholder="Teléfono"
+                        />
+                    </DropShadow>
+                    <DropShadow style={focusedInput == "email" && styles.shadowProp}>
+                        <TextInput
+                            onChangeText={setEmail}
+                            onFocus={() => setFocusedInput("email")}
+                            value={email}
+                            style={styles.input}
+                            placeholder="Email"
+                        />
+                    </DropShadow>
+                    <DropShadow style={focusedInput == "password" && styles.shadowProp}>
+                        <TextInput
+                            onChangeText={setPassword}
+                            onFocus={() => setFocusedInput("password")}
+                            value={password}
+                            keyboardType="visible-password"
+                            style={[styles.input]}
+                            placeholder="Contraseña"
+                        />
+                    </DropShadow>
+                    <View style={styles.buttonContainer}>
+                        <PopButton
+                            onPress={() => Keyboard.dismiss}
+                            title="Registrarse"
+                            button_styles={styles.button}
+                            button_text_styles={styles.buttonText}
+                        />
+                    </View>
+                    <View style={{ flex: 1, marginTop: 75, flexDirection: "row" }}>
+                        <Text>¿Ya tienes cuenta?</Text>
+                        <Text style={styles.textPressable} onPress={() => navigation.navigate("LoginPage")}> Inicia sesión</Text>
+                    </View>
                 </View>
-            </View>
-        </SafeAreaView>
+            </SafeAreaView>
+        </TouchableWithoutFeedback>
     );
 }
 
@@ -143,10 +145,10 @@ const styles = StyleSheet.create({
     },
     shadowProp: {
         shadowColor: '#fffff',
-        shadowOffset: {width: 0, height: 0},
+        shadowOffset: { width: 0, height: 0 },
         shadowOpacity: 0.25,
         shadowRadius: 2.5,
-      },
+    },
 })
 
 export default SignUpPage;

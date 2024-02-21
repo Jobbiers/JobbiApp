@@ -19,7 +19,6 @@ const SignUpPage = ({ navigation }: any) => {
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
             <SafeAreaView style={styles.main}>
-                <StatusBar />
                 <View style={{ height: height * 0.25 }}>
                     <Image style={{ height: 80 }} source={require("../../../assets/Jobbi-small.png")} />
                     <Text style={styles.title}>¡Creá tu cuenta!</Text>

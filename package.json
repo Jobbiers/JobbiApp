@@ -1,19 +1,15 @@
 {
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ],
   "scripts": {
     "dev": "turbo run dev",
     "start": "turbo run start",
     "build": "turbo run build",
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
-    "clients": "yarn workspace clients dev",
-    "turbo:clients": "turbo workspace clients dev",
-    "partners": "yarn workspace partners dev",
-    "turbo:partners": "turbo workspace partners dev"
+    "clients": "pnpm --filter clients dev",
+    "turbo:clients": "turbo --filter clients dev",
+    "partners": "pnpm --filter partners dev",
+    "turbo:partners": "turbo --filter partners dev"
   },
   "devDependencies": {
     "prettier": "^3.1.1",
@@ -22,5 +18,5 @@
   "engines": {
     "node": ">=18"
   },
-  "packageManager": "yarn@1.22.19"
+  "packageManager": "pnpm@7.18.2"
 }

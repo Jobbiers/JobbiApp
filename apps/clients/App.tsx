@@ -8,8 +8,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Routes } from './src/app/routes/Routes';
 import { ThemeProvider } from '@jobbi/ui/src/theme';
-import { Box } from '@jobbi/ui/src/components/Box';
-
+import { View } from '@jobbi/ui/src/components';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -26,12 +25,10 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <ThemeProvider scheme={scheme || 'light'}>
-        <StatusBar style='auto'/>
-        <Box type='flat' p='$0' m='$0' style={{ flex: 1 }}>
-          <SafeAreaView style={{ flex: 1 }}>
-            {true && <Routes />}
-          </SafeAreaView>
-        </Box>
+        <StatusBar style="auto" />
+        <View bg="$background" p="$0" m="$0" br="$0" f={1}>
+          <SafeAreaView style={{ flex: 1 }}>{true && <Routes />}</SafeAreaView>
+        </View>
       </ThemeProvider>
     </GestureHandlerRootView>
   );

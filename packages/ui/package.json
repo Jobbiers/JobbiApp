@@ -10,18 +10,18 @@
   },
   "devDependencies": {
     "@jobbi/typescript-config": "*",
-    "@tamagui/build": "^1.89.18",
+    "@tamagui/build": "^1.89.20",
     "@types/react": "^18.2.46",
     "@types/react-native": "^0.73.0",
     "tsup": "^8.0.1",
     "typescript": "^5.3.3"
   },
   "dependencies": {
-    "@tamagui/babel-plugin": "^1.89.18",
-    "@tamagui/config": "^1.89.18",
-    "@tamagui/core": "^1.89.18",
+    "@tamagui/babel-plugin": "^1.89.20",
+    "@tamagui/config": "^1.89.20",
+    "@tamagui/core": "^1.89.20",
     "react": "^18.2.0",
     "react-native": "^0.73.1",
-    "tamagui": "^1.89.18"
+    "tamagui": "^1.89.20"
   }
 }

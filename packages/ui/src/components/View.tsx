@@ -1,15 +1,16 @@
-import { GetProps, View, styled } from 'tamagui';
+import { GetProps, View as TamaguiView, styled } from 'tamagui';
 
-export const Box = styled(View, {
-  name: 'Box',
+export const View = styled(TamaguiView, {
+  name: 'View',
   p: '$4',
   m: '$4',
-  br: '$4',
+  theme: 'primary',
   variants: {
     type: {
       card: {
         bg: '$background',
         elevationAndroid: 5,
+        br: '$4',
         //TODO: add ios shadows here
       },
       flat: {
@@ -22,4 +23,5 @@ export const Box = styled(View, {
   },
 });
 
-export type BoxProps = GetProps<typeof Box>;
+export type ViewProps = GetProps<typeof View>;
+export default View;

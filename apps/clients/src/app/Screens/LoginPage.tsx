@@ -7,7 +7,7 @@ import { StatusBar } from 'expo-status-bar';
 
 const { width, height } = Dimensions.get("screen");
 
-const LoginPage = () => {
+const LoginPage = ({navigation}: any) => {
 
     const [ text, setText ] = useState("");
     const [ psw, setPsw ] = useState("");
@@ -15,7 +15,6 @@ const LoginPage = () => {
 
     return (
         <SafeAreaView style={styles.main}>
-            <StatusBar />
             <View style={{height: height * 0.25}}>
                 <Image style={{ height: 80 }} source={require("../../../assets/Jobbi-small.png")} />
                 <Text style={styles.title}>Iniciar Sesión</Text>
@@ -41,7 +40,7 @@ const LoginPage = () => {
                     />
                 {/* </DropShadow> */}
                 <Pressable>
-                    <Text style={[styles.text]}>Has olvidado tu contraseña</Text>
+                    <Text style={[styles.text]}>Olvidé mi contraseña</Text>
                 </Pressable>
                 <View style={styles.buttonContainer}>
                     <PopButton
@@ -52,8 +51,8 @@ const LoginPage = () => {
                     />
                 </View>
                 <View style={{flex: 1, marginTop: 75, flexDirection: "row"}}>
-                    <Text>¿Aun no tienes cuenta?</Text>
-                    <Text style={styles.textPressable}> Registrarse</Text>
+                    <Text>¿Aún no tienes cuenta?</Text>
+                    <Text style={styles.textPressable} onPress={() => navigation.navigate("SignUpPage")}> Registrarse</Text>
                 </View>
             </View>
         </SafeAreaView>

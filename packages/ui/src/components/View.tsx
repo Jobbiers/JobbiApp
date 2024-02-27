@@ -2,8 +2,6 @@ import { GetProps, View as TamaguiView, styled } from 'tamagui';
 
 export const View = styled(TamaguiView, {
   name: 'View',
-  p: '$4',
-  m: '$4',
   theme: 'primary',
   variants: {
     type: {
@@ -17,9 +15,16 @@ export const View = styled(TamaguiView, {
         bg: '$background',
       },
     },
+    withPadding: {
+      true: {
+        p: '$4',
+        m: '$4',
+      },
+    },
   } as const,
   defaultVariants: {
     type: 'flat',
+    withPadding: false,
   },
 });
 

@@ -2,18 +2,19 @@ import { GetProps, Button as TamaguiButton, styled } from 'tamagui';
 
 const Button = styled(TamaguiButton, {
   name: 'Button',
+  my: '$2',
   variants: {
     dimensions: {
-      small: {
+      s: {
         h: '$4',
         w: '$10',
       },
-      medium: {
-        h: '$6',
+      m: {
+        h: '$5',
         w: '$10',
       },
-      large: {
-        h: '$8',
+      l: {
+        h: '$7',
         w: '$10',
       },
     },
@@ -22,11 +23,17 @@ const Button = styled(TamaguiButton, {
         w: '100%',
       },
     },
+    rounded: {
+      true: {
+        br: '$10',
+      },
+    },
   } as const,
 
   defaultVariants: {
+    dimensions: 'm',
     fullWidth: false,
-    dimensions: 'medium',
+    rounded: false,
   },
 });
 

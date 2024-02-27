@@ -1,10 +1,15 @@
 import { useState } from 'react';
-import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback, Keyboard } from 'react-native';
+import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform } from 'react-native';
 import { TextInput, View, Text, Button } from '@jobbi/ui/src/components';
-
+import { I18n } from 'i18n-js';
+import { translations } from '@jobbi/common/src/i18n';
+import { getLocales } from 'expo-localization';
 const { width, height } = Dimensions.get('screen');
 
+const i18n = new I18n(translations);
+
 const SignUpPage = ({ navigation }: any) => {
+  i18n.locale = getLocales()[0].languageCode!;
   const [name, setName] = useState('');
   const [surName, setSurName] = useState('');
   const [phone, setPhone] = useState('');
@@ -13,66 +18,68 @@ const SignUpPage = ({ navigation }: any) => {
   const [focusedInput, setFocusedInput] = useState('');
 
   return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-      <View style={styles.main} withPadding>
-        <View style={{ height: height * 0.25, alignItems: 'center' }}>
-          <Image style={{ height: 80 }} source={require('../../../assets/Jobbi-small.png')} />
-          <Text style={styles.title}>¡Creá tu cuenta!</Text>
+    <KeyboardAvoidingView accessible={false} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.main}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+        <View style={styles.main} withPadding>
+          <View style={{ height: height * 0.25, alignItems: 'center' }}>
+            <Image style={{ height: 80 }} source={require('../../../assets/Jobbi-small.png')} />
+            <Text style={styles.title}>{i18n.t('welcome.create_account')}</Text>
+          </View>
+
+          <TextInput
+            onChangeText={setName}
+            onFocus={() => setFocusedInput('username')}
+            value={name}
+            style={styles.input}
+            placeholder={i18n.t('welcome.name')}
+          />
+
+          <TextInput
+            onChangeText={setSurName}
+            onFocus={() => setFocusedInput('surname')}
+            value={surName}
+            style={styles.input}
+            placeholder={i18n.t('welcome.surname')}
+          />
+
+          <TextInput
+            onChangeText={setPhone}
+            onFocus={() => setFocusedInput('phone')}
+            value={phone}
+            style={styles.input}
+            placeholder={i18n.t('welcome.phone')}
+          />
+
+          <TextInput
+            onChangeText={setEmail}
+            onFocus={() => setFocusedInput('email')}
+            value={email}
+            style={styles.input}
+            placeholder={i18n.t('welcome.email')}
+          />
+
+          <TextInput
+            onChangeText={setPassword}
+            onFocus={() => setFocusedInput('password')}
+            value={password}
+            keyboardType="visible-password"
+            style={[styles.input]}
+            placeholder={i18n.t('welcome.password')}
+          />
+
+          <Button onPress={() => Keyboard.dismiss} fullWidth rounded>
+            Registrarse
+          </Button>
+
+          <View style={{ flex: 1, marginTop: 75, flexDirection: 'row' }}>
+            <Text>{i18n.t('welcome.have_account')} </Text>
+            <Text style={styles.textPressable} onPress={() => navigation.navigate('LoginPage')}>
+              {i18n.t('welcome.login')}
+            </Text>
+          </View>
         </View>
-
-        <TextInput
-          onChangeText={setName}
-          onFocus={() => setFocusedInput('username')}
-          value={name}
-          style={styles.input}
-          placeholder="Username"
-        />
-
-        <TextInput
-          onChangeText={setSurName}
-          onFocus={() => setFocusedInput('surname')}
-          value={surName}
-          style={styles.input}
-          placeholder="Apellido"
-        />
-
-        <TextInput
-          onChangeText={setPhone}
-          onFocus={() => setFocusedInput('phone')}
-          value={phone}
-          style={styles.input}
-          placeholder="Teléfono"
-        />
-
-        <TextInput
-          onChangeText={setEmail}
-          onFocus={() => setFocusedInput('email')}
-          value={email}
-          style={styles.input}
-          placeholder="Email"
-        />
-
-        <TextInput
-          onChangeText={setPassword}
-          onFocus={() => setFocusedInput('password')}
-          value={password}
-          keyboardType="visible-password"
-          style={[styles.input]}
-          placeholder="Contraseña"
-        />
-
-        <Button onPress={() => Keyboard.dismiss} fullWidth rounded>
-          Registrarse
-        </Button>
-
-        <View style={{ flex: 1, marginTop: 75, flexDirection: 'row' }}>
-          <Text>¿Ya tienes cuenta? </Text>
-          <Text style={styles.textPressable} onPress={() => navigation.navigate('LoginPage')}>
-            Inicia sesión
-          </Text>
-        </View>
-      </View>
-    </TouchableWithoutFeedback>
+      </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 };
 
@@ -82,6 +89,7 @@ const styles = StyleSheet.create({
     height: height,
     justifyContent: 'center',
     alignItems: 'center',
+    width: width
   },
   footerContainer: {
     height: height * 0.03,

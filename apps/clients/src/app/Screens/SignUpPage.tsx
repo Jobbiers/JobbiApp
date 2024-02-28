@@ -21,7 +21,7 @@ const SignUpPage = ({ navigation }: any) => {
     <KeyboardAvoidingView accessible={false} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.main}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={styles.main} withPadding>
-          <View style={{ height: height * 0.25, alignItems: 'center' }}>
+          <View style={{ height: height * 0.25, alignItems: 'center', justifyContent: 'center' }}>
             <Image style={{ height: 80 }} source={require('../../../assets/Jobbi-small.png')} />
             <Text style={styles.title}>{i18n.t('welcome.create_account')}</Text>
           </View>
@@ -59,6 +59,7 @@ const SignUpPage = ({ navigation }: any) => {
           />
 
           <TextInput
+            secureTextEntry={true}
             onChangeText={setPassword}
             onFocus={() => setFocusedInput('password')}
             value={password}
@@ -67,8 +68,8 @@ const SignUpPage = ({ navigation }: any) => {
             placeholder={i18n.t('welcome.password')}
           />
 
-          <Button onPress={() => Keyboard.dismiss} fullWidth rounded>
-            Registrarse
+          <Button onPress={Keyboard.dismiss} fullWidth rounded>
+            {i18n.t('welcome.signup')}
           </Button>
 
           <View style={{ flex: 1, marginTop: 75, flexDirection: 'row' }}>

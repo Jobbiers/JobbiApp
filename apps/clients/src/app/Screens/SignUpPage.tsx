@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform } from 'react-native';
-import { TextInput, View, Text, Button } from '@jobbi/ui/src/components';
+import { TextInput, View, Text, Button, Icon } from '@jobbi/ui/src/components';
 import { I18n } from 'i18n-js';
 import { translations } from '@jobbi/common/src/i18n';
 import { getLocales } from 'expo-localization';
+import { Icons } from '@jobbi/ui/src/components/Icon';
 const { width, height } = Dimensions.get('screen');
 
 const i18n = new I18n(translations);
@@ -63,16 +64,20 @@ const SignUpPage = ({ navigation }: any) => {
             style={styles.input}
             placeholder={i18n.t('welcome.email')}
           />
-
-          <TextInput
-            secureTextEntry={eyePassword}
-            onChangeText={setPassword}
-            onFocus={() => setFocusedInput('password')}
-            value={password}
-            keyboardType="visible-password"
-            style={[styles.input]}
-            placeholder={i18n.t('welcome.password')}
-          />
+          <View style={{ paddingLeft: 20, paddingRight: 20, width: width, justifyContent: 'center' }}>
+            <TextInput
+              secureTextEntry={eyePassword}
+              onChangeText={setPassword}
+              onFocus={() => setFocusedInput('password')}
+              value={password}
+              keyboardType="visible-password"
+              placeholder={i18n.t('welcome.password')}
+            />
+            <View onPress={() => viewPassword()} style={{ position: 'absolute', right: 40 }}>
+              {eyePassword ? false : true && <Icon type={Icons.Feather} name='eye' color='white' ></Icon>}
+              {!eyePassword ? false : true && <Icon type={Icons.Feather} name='eye-off' color='white' ></Icon>}
+            </View>
+          </View>
 
           <Button onPress={() => { Keyboard.dismiss(); }} fullWidth rounded>
             {i18n.t('welcome.signup')}

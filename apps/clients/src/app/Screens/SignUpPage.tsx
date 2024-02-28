@@ -16,6 +16,12 @@ const SignUpPage = ({ navigation }: any) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [focusedInput, setFocusedInput] = useState('');
+  const [eyePassword, setEyePassword] = useState(true);
+
+  const viewPassword = () => {
+    setEyePassword(!eyePassword);
+    return eyePassword;
+  }
 
   return (
     <KeyboardAvoidingView accessible={false} behavior={Platform.OS === 'ios' ? 'padding' : 'height'} style={styles.main}>
@@ -59,7 +65,7 @@ const SignUpPage = ({ navigation }: any) => {
           />
 
           <TextInput
-            secureTextEntry={true}
+            secureTextEntry={eyePassword}
             onChangeText={setPassword}
             onFocus={() => setFocusedInput('password')}
             value={password}
@@ -68,7 +74,7 @@ const SignUpPage = ({ navigation }: any) => {
             placeholder={i18n.t('welcome.password')}
           />
 
-          <Button onPress={Keyboard.dismiss} fullWidth rounded>
+          <Button onPress={() => { Keyboard.dismiss(); }} fullWidth rounded>
             {i18n.t('welcome.signup')}
           </Button>
 

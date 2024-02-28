@@ -28,7 +28,7 @@ const LoginPage = ({ navigation }: any) => {
           onFocus={() => setFocusedInput('password')}
           value={psw}
           keyboardType="visible-password"
-          style={[styles.input]}
+          style={styles.input}
           placeholder="Password"
         />
         <View>

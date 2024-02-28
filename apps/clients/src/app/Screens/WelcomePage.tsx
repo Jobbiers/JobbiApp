@@ -2,7 +2,7 @@ import { useFonts } from 'expo-font';
 import { LinearGradient } from 'tamagui/linear-gradient';
 import React, { memo } from 'react';
 
-import { Image, View, StyleSheet, Dimensions } from 'react-native';
+import { Image, View, StyleSheet, Dimensions, Platform } from 'react-native';
 import { getLocales } from 'expo-localization';
 import { I18n } from 'i18n-js';
 import { Button, Text } from '@jobbi/ui/src/components';
@@ -26,9 +26,13 @@ const WelcomePage = ({ navigation }: any) => {
 
   useFocusEffect(
     React.useCallback(() => {
-      setStatusBarBackgroundColor(theme.$purple7.val, true);
+      if(Platform.OS == 'android')
+        setStatusBarBackgroundColor(theme.$purple7.val, true);
 
-      return () => setStatusBarBackgroundColor(theme.$background.val, true);
+      return () => {
+        if(Platform.OS == 'android')
+        setStatusBarBackgroundColor(theme.$background.val, true)
+      };
     }, [theme]),
   );
 

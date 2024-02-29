@@ -50,8 +50,4 @@ const Icon = ({ type, name, color, size = 24, style }: IconProps) => {
   );
 };
 
-<<<<<<< HEAD
 export default Icon;
-=======
-export default Icon;
->>>>>>> develop

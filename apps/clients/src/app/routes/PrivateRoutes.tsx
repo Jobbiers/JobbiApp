@@ -4,8 +4,9 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SafeAreaView, View, Text } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import Icon, { Icons } from '@repo/ui/src/components/Icon';
+import HomeStack from '../modules/home/routes/HomeStack';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -37,7 +38,6 @@ const AccountStack = () => (
 
 const pages = [
   {
-    route: 'Example',
     label: 'Recompensas',
     type: Icons.Ionicons,
     activeIcon: 'medal',
@@ -45,7 +45,6 @@ const pages = [
     component: AccountStack,
   },
   {
-    route: 'Example2',
     label: 'Mensajes',
     type: Icons.Ionicons,
     activeIcon: 'chatbox-ellipses',
@@ -53,15 +52,13 @@ const pages = [
     component: AccountStack,
   },
   {
-    route: 'Example3',
     label: 'Home',
     type: Icons.Ionicons,
     activeIcon: 'home',
     inActiveIcon: 'home-outline',
-    component: AccountStack,
+    component: HomeStack,
   },
   {
-    route: 'Example4',
     label: 'Ordenes',
     type: Icons.Ionicons,
     activeIcon: 'clipboard',
@@ -69,7 +66,6 @@ const pages = [
     component: AccountStack,
   },
   {
-    route: 'Example5',
     label: 'Perfil',
     type: Icons.Ionicons,
     activeIcon: 'person-circle',
@@ -104,7 +100,7 @@ export const PrivateRoutes = () => {
           return (
             <Tab.Screen
               key={'tab-' + index}
-              name={page.route}
+              name={page.label}
               component={page.component}
               options={{
                 tabBarShowLabel: false,

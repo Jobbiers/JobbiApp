@@ -4,7 +4,7 @@
 node_modules
 .pnp
 .pnp.js
-.pnpm-lock.yaml
+pnpm-lock.yaml
 
 # testing
 coverage
@@ -36,3 +36,6 @@ yarn-error.log*
 
 # turbo
 .turbo
+
+# tamagui
+.tamagui/

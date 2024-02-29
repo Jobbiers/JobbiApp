@@ -1,13 +1,20 @@
 import { AuthRoutes } from './AuthRoutes';
-import { PrivateRoutes } from './PrivateRoutes';
-import { NavigationContainer } from '@react-navigation/native';
+import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 
 export const Routes = () => {
-    return (
-        <NavigationContainer>
-            { true &&
-                <PrivateRoutes />
-            }
-        </NavigationContainer>
-    )
+  const navTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: 'transparent',
+    },
+  };
+
+  return (
+    <NavigationContainer theme={{...navTheme}}>
+      { true &&
+        <AuthRoutes />
+      }
+    </NavigationContainer>
+  )
 }

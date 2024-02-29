@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { StyleSheet, Dimensions, Image, TouchableWithoutFeedback, Keyboard, KeyboardAvoidingView, Platform } from 'react-native';
 import { TextInput, View, Text, Button, Icon } from '@jobbi/ui/src/components';
 import { I18n } from 'i18n-js';
 import { translations } from '@jobbi/common/src/i18n';
 import { getLocales } from 'expo-localization';
 import { Icons } from '@jobbi/ui/src/components/Icon';
+import { useTheme } from 'tamagui';
 const { width, height } = Dimensions.get('screen');
 
 const i18n = new I18n(translations);
@@ -18,6 +19,11 @@ const SignUpPage = ({ navigation }: any) => {
   const [password, setPassword] = useState('');
   const [focusedInput, setFocusedInput] = useState('');
   const [eyePassword, setEyePassword] = useState(true);
+  useEffect(()=>{
+    console.log(theme)
+  },[]);
+
+  const theme = useTheme();
 
   const viewPassword = () => {
     setEyePassword(!eyePassword);
@@ -74,8 +80,8 @@ const SignUpPage = ({ navigation }: any) => {
               placeholder={i18n.t('welcome.password')}
             />
             <View onPress={() => viewPassword()} style={{ position: 'absolute', right: 40 }}>
-              {eyePassword ? false : true && <Icon type={Icons.Feather} name='eye' color='white' ></Icon>}
-              {!eyePassword ? false : true && <Icon type={Icons.Feather} name='eye-off' color='white' ></Icon>}
+              {eyePassword ? false : true && <Icon type={Icons.Feather} name='eye' color="	hsl(0, 100%, 50%)" ></Icon>}
+              {!eyePassword ? false : true && <Icon type={Icons.Feather} name='eye-off' color="	hsl(0, 100%, 50%)" ></Icon>}
             </View>
           </View>
 

@@ -5,12 +5,13 @@ import ProfessionalsResponse from './Professionals.response';
 export default [
   {
     id: 0,
-    professionalId: ProfessionalsResponse[0],
-    name: 'Cortador de pasto',
-    categoryId: CategoryResponse[3],
-    openingHours: ['09:00:00', '16:00:00'],
+    businessId: 0,
+    name: 'Cortada de pasto',
+    professionalId: 0,
     isDelivery: true,
+    categoryId: CategoryResponse[3],
     coordinates: [-31.651833, -64.431232],
-    commentsId: [CommentsResponse[0]]
+    commentsId: [CommentsResponse[0]],
+    estimatedPrize: [3000, 6000]
   }
 ];

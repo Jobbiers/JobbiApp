@@ -8,7 +8,7 @@ export default [
     photo: '', // Id bucketfile Firebase or other Db
     timeStamp: '',
     mail: 'morriogimenez@gmail.com',
-    activeOrders: [OrdersResponse[0]],
-    ordersIds: [OrdersResponse[0]]
+    ordersIds: [OrdersResponse[0]],
+    businessId: 0
   }
 ];

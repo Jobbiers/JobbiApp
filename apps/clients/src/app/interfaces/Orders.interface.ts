@@ -5,7 +5,7 @@ import { States } from "./States.interface";
 export interface Orders {
   id: number;
   professionalId: Professional;
-  userId: 0;
+  userId: number;
   serviceId: Services;
   stateId: States;
 }

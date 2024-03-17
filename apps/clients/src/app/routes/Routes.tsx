@@ -1,5 +1,6 @@
 import { AuthRoutes } from './AuthRoutes';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
+import { PrivateRoutes } from './PrivateRoutes';
 
 export const Routes = () => {
   const navTheme = {
@@ -13,7 +14,7 @@ export const Routes = () => {
   return (
     <NavigationContainer theme={{...navTheme}}>
       { true &&
-        <AuthRoutes />
+        <PrivateRoutes />
       }
     </NavigationContainer>
   )

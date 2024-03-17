@@ -1,5 +1,5 @@
-import { Professional } from "./Professional.interface";
-import { Services } from "./Services.interface";
+import { Professional } from './Professional.interface';
+import { Services } from './Services.interface';
 
 export interface Business {
   id: number;

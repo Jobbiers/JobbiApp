@@ -1,8 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import {
-  BottomTabBarProps,
-  createBottomTabNavigator,
-} from '@react-navigation/bottom-tabs';
+import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView, View } from 'react-native';
 import Icon, { Icons } from '@repo/ui/src/components/Icon';
@@ -52,7 +49,7 @@ const pages = [
     component: AccountStack,
   },
   {
-    label: 'Home',
+    label: 'HomeStack',
     type: Icons.Ionicons,
     activeIcon: 'home',
     inActiveIcon: 'home-outline',
@@ -78,7 +75,7 @@ export const PrivateRoutes = () => {
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Tab.Navigator
-        initialRouteName="Example3"
+        initialRouteName="HomeStack"
         screenOptions={() => ({
           tabBarStyle: {
             backgroundColor: 'white',

@@ -1,3 +1,4 @@
+import BusinessResponse from './Business.response';
 import OrdersResponse from './Orders.response';
 
 export default [
@@ -6,9 +7,9 @@ export default [
     name: 'Morrio',
     lastName: 'Gimenez',
     photo: '', // Id bucketfile Firebase or other Db
-    timeStamp: '',
+    timeStamp: 123132132,
+    verified: true,
     mail: 'morriogimenez@gmail.com',
-    ordersIds: [OrdersResponse[0]],
-    businessId: 0
-  }
+    ordersIds: 0,
+  },
 ];

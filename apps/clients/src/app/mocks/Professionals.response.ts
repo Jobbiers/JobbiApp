@@ -1,15 +1,16 @@
-import BusinessResponse from './Business.response';
-import OrdersResponse from './Orders.response';
+import { Professional } from '../interfaces/Professional.interface';
+import {CommentsResponse} from './Comments.response';
 
-export default [
+export const ProfessionalResponse: Professional[] = [
   {
-    id: 0,
+    id: 1,
     name: 'Morrio',
     lastName: 'Gimenez',
     photo: '', // Id bucketfile Firebase or other Db
     timeStamp: 123132132,
     verified: true,
     mail: 'morriogimenez@gmail.com',
-    ordersIds: 0,
+    ordersIds: [1],
+    comments: CommentsResponse
   },
 ];

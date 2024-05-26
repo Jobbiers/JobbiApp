@@ -1,4 +1,5 @@
 import { Business } from './Business.interface';
+import { Comment } from './Comment.interface';
 import { Orders } from './Orders.interface';
 
 export interface Professional {
@@ -9,5 +10,6 @@ export interface Professional {
   timeStamp: number;
   mail: string;
   verified: boolean;
-  ordersIds: Orders[];
+  ordersIds: number[];
+  comments: Comment[];
 }

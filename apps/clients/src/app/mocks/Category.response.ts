@@ -1,11 +1,5 @@
 export default [
   {
-    id: 0,
-    name: 'Carpinteria',
-    vector: '',
-    timeStamp: '',
-  },
-  {
     id: 1,
     name: 'Electricidad',
     vector: '',

@@ -1,14 +1,14 @@
 export default [
     {
-        id: 0,
+        id: 1,
         name: "Pending",
     },
     {
-        id: 1,
+        id: 2,
         name: "In progress",
     },
     {
-    id: 2,
+    id: 3,
         name: "Finished",
     }
 ]

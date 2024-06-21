@@ -9,11 +9,10 @@ const ProfessionalDetail = ({ route }: any) => {
   const navigation = useNavigation();
   const { professionalItem } = route.params;
 
-  console.log(route.params.professionalItem);
   return (
     <View w={'100%'} h={'100%'}>
       <View pt={10} ai={'center'}>
-        <View bg={'gray'} h={250} w={250} br={150}></View>
+        <View bg={'gray'} h={175} w={175} br={100}></View>
         <View pt={10} fd={'row'} jc={'center'} ai={'center'}>
           <Text fos={25}>
             {professionalItem.name} {professionalItem.lastName}
@@ -79,36 +78,38 @@ const ProfessionalDetail = ({ route }: any) => {
             </View>
           </View>
         </View>
-        <View>
-          <TouchableOpacity
-            style={{
-              ...globalStyles.lightPrimary,
-              width: '50%',
-              height: 70,
-              borderRadius: 100,
-              justifyContent: 'center',
-              alignItems: 'center',
-              marginTop: 70,
-            }}
-          >
-            <Text fos={24} col={'white'} fow={'bold'}>
-              Comentarios
-            </Text>
-          </TouchableOpacity>
+        <View w={'100%'} mt={10} ai={'flex-start'} jc={'center'}>
+          <Text fos={20} fow={'800'} my={5}>
+            Servicios de electricidad
+          </Text>
+          <Text fos={15}>Aca iria texto descripcion del servicio</Text>
         </View>
       </View>
-      <View jc={'flex-end'} pos={'absolute'} ai={'center'} b={150} r={20}>
+      <View jc={'flex-end'} pos={'absolute'} ai={'center'} b={100} r={20}>
         <TouchableOpacity
           style={{
-            ...globalStyles.lightPrimary,
-            width: 60,
-            height: 60,
+            ...globalStyles.lightSecondary,
+            width: 70,
+            height: 70,
             borderRadius: 100,
             justifyContent: 'center',
             alignItems: 'center',
           }}
         >
           <Icon name="calendar" type={Icons.AntDesign} size={30} color="white"></Icon>
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={{
+            ...globalStyles.lightWarning,
+            width: 60,
+            height: 60,
+            borderRadius: 100,
+            marginTop: 10,
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <Icon name="comments-o" type={Icons.FontAwesome} size={30} color="white"></Icon>
         </TouchableOpacity>
       </View>
     </View>

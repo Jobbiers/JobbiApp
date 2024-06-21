@@ -1,27 +1,14 @@
 import { Icon, TextInput, Text, View } from '@jobbi/ui/src/components';
 import { Icons } from '@jobbi/ui/src/components/Icon';
 import { useEffect, useMemo, useState } from 'react';
-import {
-  ActivityIndicator,
-  BackHandler,
-  Dimensions,
-  FlatList,
-  Image,
-  StyleSheet,
-} from 'react-native';
+import { BackHandler, Dimensions, Image, StyleSheet } from 'react-native';
 import globalStyles from '../../../../../globalStyles';
 import { Category } from '../../../interfaces/Category.interface';
 import { CategoriesApi } from '../../../services/CategoriesApi';
-import {
-  CardCategory,
-  CardProfessionals,
-  CategoriesListCards,
-  ProfessionalListCards,
-} from '../components';
+import { CategoriesListCards, ProfessionalListCards } from '../components';
 import { Professional } from '../../../interfaces/Professional.interface';
 import { ProfessionalsApi } from '../../../services/ProfessionalsApi';
 import { AntDesign } from '@expo/vector-icons';
-import { size } from '../../../../../../../packages/ui/src/theme/theme';
 import { TouchableOpacity } from 'react-native';
 
 const { width, height } = Dimensions.get('screen');

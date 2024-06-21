@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView, View } from 'react-native';
-import Icon, { Icons } from '@repo/ui/src/components/Icon';
+import Icon, { Icons } from '../../../../../packages/ui/src/components/Icon';
 import HomeStack from '../modules/home/routes/HomeStack';
 
 const Stack = createStackNavigator();

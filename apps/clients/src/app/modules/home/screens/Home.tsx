@@ -21,7 +21,6 @@ import {
 import { Professional } from '../../../interfaces/Professional.interface';
 import { ProfessionalsApi } from '../../../services/ProfessionalsApi';
 import { AntDesign } from '@expo/vector-icons';
-import { size } from '../../../../../../../packages/ui/src/theme/theme';
 import { TouchableOpacity } from 'react-native';
 
 const { width, height } = Dimensions.get('screen');

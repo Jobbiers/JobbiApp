@@ -1,41 +1,8 @@
-import { GetProps, Button as TamaguiButton, styled } from 'tamagui';
+import React from 'react';
+import { Button as RNButton, ButtonProps } from 'react-native';
 
-const Button = styled(TamaguiButton, {
-  name: 'Button',
-  my: '$2',
-  variants: {
-    dimensions: {
-      s: {
-        h: '$4',
-        w: '$10',
-      },
-      m: {
-        h: '$5',
-        w: '$10',
-      },
-      l: {
-        h: '$7',
-        w: '$10',
-      },
-    },
-    fullWidth: {
-      true: {
-        w: '100%',
-      },
-    },
-    rounded: {
-      true: {
-        br: '$10',
-      },
-    },
-  } as const,
+const Button: React.FC<ButtonProps> = (props) => {
+  return <RNButton {...props} />;
+};
 
-  defaultVariants: {
-    dimensions: 'm',
-    fullWidth: false,
-    rounded: false,
-  },
-});
-
-export type ButtonProps = GetProps<typeof Button>;
 export default Button;

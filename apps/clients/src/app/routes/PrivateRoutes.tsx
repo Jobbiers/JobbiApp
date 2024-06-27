@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
+// @ts-ignore
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView, View } from 'react-native';
-import Icon, { Icons } from '@repo/ui/src/components/Icon';
+import { Icon, Icons } from '@jobbi/ui/src/components';
 import HomeStack from '../modules/home/routes/HomeStack';
 
 const Stack = createStackNavigator();
@@ -103,7 +104,7 @@ export const PrivateRoutes = () => {
                 tabBarShowLabel: false,
                 tabBarAllowFontScaling: true,
                 headerShown: false,
-                tabBarIcon: ({ focused }) => (
+                tabBarIcon: ({ focused }: { focused: boolean }) => (
                   <View style={{ alignItems: 'center' }}>
                     <Icon
                       type={page.type}

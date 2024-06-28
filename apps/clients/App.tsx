@@ -1,17 +1,16 @@
 import React from 'react';
-import { StyleSheet, useColorScheme } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { SafeAreaView } from 'react-native-safe-area-context';
 
 import { Routes } from './src/app/routes/Routes';
+import { ThemeProvider } from '@jobbi/ui/src/theme/ThemeProvider';
+import { Root, View } from '@jobbi/ui/src/components';
 
 export default function App() {
   const [loaded] = useFonts({});
-
-  const scheme = useColorScheme();
 
   if (!loaded) {
     return null;
@@ -19,8 +18,10 @@ export default function App() {
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
-      <StatusBar style="auto" />
-      <SafeAreaView style={{ flex: 1 }}>{true && <Routes />}</SafeAreaView>
+      <ThemeProvider>
+        <StatusBar style="auto" />
+        <Root>{true && <Routes />}</Root>
+      </ThemeProvider>
     </GestureHandlerRootView>
   );
 }

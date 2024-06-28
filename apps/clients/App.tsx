@@ -9,6 +9,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { Routes } from './src/app/routes/Routes';
 import { ThemeProvider } from '@jobbi/ui/src/theme';
 import { View } from '@jobbi/ui/src/components';
+import { store } from './src/app/store';
+import { Provider } from 'react-redux';
 
 export default function App() {
   const [loaded] = useFonts({
@@ -23,14 +25,16 @@ export default function App() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider scheme={scheme || 'light'}>
-        <StatusBar style="auto" />
-        <View bg="$background" p="$0" m="$0" br="$0" f={1}>
-          <SafeAreaView style={{ flex: 1 }}>{true && <Routes />}</SafeAreaView>
-        </View>
-      </ThemeProvider>
-    </GestureHandlerRootView>
+    <Provider store={store}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <ThemeProvider scheme={scheme || 'light'}>
+          <StatusBar style="auto" />
+          <View bg="$background" p="$0" m="$0" br="$0" f={1}>
+            <SafeAreaView style={{ flex: 1 }}>{true && <Routes />}</SafeAreaView>
+          </View>
+        </ThemeProvider>
+      </GestureHandlerRootView>
+    </Provider>
   );
 }
 

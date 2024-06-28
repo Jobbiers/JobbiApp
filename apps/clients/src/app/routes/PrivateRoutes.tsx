@@ -5,6 +5,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView, View } from 'react-native';
 import { Icon, Icons } from '@jobbi/ui/src/components';
 import HomeStack from '../modules/home/routes/HomeStack';
+import useTheme from '@jobbi/ui/src/theme/useTheme';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -73,13 +74,15 @@ const pages = [
 ];
 
 export const PrivateRoutes = () => {
+  const { colors } = useTheme();
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <Tab.Navigator
         initialRouteName="HomeStack"
         screenOptions={() => ({
           tabBarStyle: {
-            backgroundColor: 'white',
+            backgroundColor: colors.background,
             position: 'absolute',
             bottom: 16,
             right: 16,
@@ -109,7 +112,7 @@ export const PrivateRoutes = () => {
                     <Icon
                       type={page.type}
                       name={focused ? page.activeIcon : page.inActiveIcon}
-                      color={focused ? '#6F14E8' : '#afa9c2'}
+                      color={focused ? colors.primary : colors.tertiary}
                       size={focused ? 35 : 25}
                     />
                   </View>

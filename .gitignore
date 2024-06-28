@@ -37,5 +37,5 @@ yarn-error.log*
 # turbo
 .turbo
 
-# tamagui
-.tamagui/
+# config
+tsconfig.json

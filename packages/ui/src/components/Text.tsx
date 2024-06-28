@@ -1,8 +1,8 @@
-import { GetProps, Text as TamaguiText, styled } from 'tamagui';
+import React from 'react';
+import { Text as RNText, TextProps as RNTextProps } from 'react-native';
 
-const Text = styled(TamaguiText, {
-  name: 'Text',
-});
+const Text: React.FC<RNTextProps> = (props) => {
+  return <RNText {...props} />;
+};
 
-export type TextProps = GetProps<typeof Text>;
 export default Text;

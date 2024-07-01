@@ -7,7 +7,9 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import { Routes } from './src/app/routes/Routes';
 import { ThemeProvider } from '@jobbi/ui/src/theme/ThemeProvider';
-import { Root, View } from '@jobbi/ui/src/components';
+import { Root } from '@jobbi/ui/src/components';
+import { Provider } from 'react-redux';
+import { store } from './src/app/store';
 
 export default function App() {
   const [loaded] = useFonts({});
@@ -17,12 +19,14 @@ export default function App() {
   }
 
   return (
-    <GestureHandlerRootView style={{ flex: 1 }}>
-      <ThemeProvider>
-        <StatusBar style="auto" />
-        <Root>{true && <Routes />}</Root>
-      </ThemeProvider>
-    </GestureHandlerRootView>
+    <Provider store={store}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
+        <ThemeProvider>
+          <StatusBar style="auto" />
+          <Root>{true && <Routes />}</Root>
+        </ThemeProvider>
+      </GestureHandlerRootView>
+    </Provider>
   );
 }
 

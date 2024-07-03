@@ -10,9 +10,14 @@ import { ThemeProvider } from '@jobbi/ui/src/theme/ThemeProvider';
 import { Root, View } from '@jobbi/ui/src/components';
 
 export default function App() {
-  const [loaded] = useFonts({});
+  const [fonstLoaded, fontError] = useFonts({
+    PublicSansRegular: require('@jobbi/ui/assets/fonts/PublicSans-Regular.ttf'),
+    PublicSansSemi: require('@jobbi/ui/assets/fonts/PublicSans-SemiBold.ttf'),
+    PublicSansBold: require('@jobbi/ui/assets/fonts/PublicSans-Bold.ttf'),
+    CaveatBold: require('@jobbi/ui/assets/fonts/Caveat-Bold.ttf'),
+  });
 
-  if (!loaded) {
+  if (!fonstLoaded) {
     return null;
   }
 

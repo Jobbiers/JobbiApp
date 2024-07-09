@@ -1,8 +1,46 @@
 import React from 'react';
-import { Button as RNButton, ButtonProps } from 'react-native';
+import Pressable, { PressableProps } from './Pressable';
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import Text, { TextProps } from './Text';
+import { Colors, ColorVariants } from '../theme';
 
-const Button: React.FC<ButtonProps> = (props) => {
-  return <RNButton {...props} />;
+interface ButtonProps extends PressableProps {
+  style?: StyleProp<ViewStyle>;
+  textProps?: TextProps;
+  title?: string;
+  color?: ColorVariants;
+  onPress: () => void;
+}
+
+// TODO: add icon prop
+const Button: React.FC<ButtonProps> = ({
+  title,
+  textProps,
+  color = 'primary',
+  padding = 'md',
+  style,
+  ...props
+}) => {
+  const underlayColor = `${color}-light` as Colors;
+
+  return (
+    <Pressable
+      backgroundColor={color}
+      underlayColor={underlayColor}
+      padding={padding}
+      {...props}
+      style={[styles.base, style]}
+    >
+      {title && <Text {...textProps}>{title}</Text>}
+    </Pressable>
+  );
 };
 
+const styles = StyleSheet.create({
+  base: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 export default Button;

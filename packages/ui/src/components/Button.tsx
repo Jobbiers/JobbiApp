@@ -1,6 +1,6 @@
 import React from 'react';
 import Pressable, { PressableProps } from './Pressable';
-import { StyleProp, ViewStyle } from 'react-native';
+import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import Text, { TextProps } from './Text';
 import { Colors, ColorVariants } from '../theme';
 
@@ -29,11 +29,18 @@ const Button: React.FC<ButtonProps> = ({
       underlayColor={underlayColor}
       padding={padding}
       {...props}
-      style={[{ flex: 1, justifyContent: 'center', alignItems: 'center' }, style]}
+      style={[styles.base, style]}
     >
       {title && <Text {...textProps}>{title}</Text>}
     </Pressable>
   );
 };
 
+const styles = StyleSheet.create({
+  base: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});
 export default Button;

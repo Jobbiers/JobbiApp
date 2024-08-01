@@ -43,7 +43,7 @@ export type Theme = {
   };
 };
 
-const defaultTheme: Theme = {
+export const defaultTheme: Theme = {
   colors: {
     primary: '',
     'primary-light': '',
@@ -70,17 +70,17 @@ const defaultTheme: Theme = {
     light: 'Arial',
   },
   fontSizes: {
-    title: 36,
+    title: 32,
     subtitle: 24,
-    body: 16,
+    body: 14,
     caption: 12,
   },
   spacing: {
     xs: 2,
     sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 32,
+    md: 14,
+    lg: 18,
+    xl: 26,
   },
 };
 

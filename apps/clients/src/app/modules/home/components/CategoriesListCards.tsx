@@ -1,6 +1,6 @@
 import { Text, View } from '@jobbi/ui/src/components';
 import { memo } from 'react';
-import { FlatList } from 'react-native';
+import { FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { Category } from '../../../interfaces/Category.interface';
 import CardCategory from './CardCategory';
 
@@ -11,9 +11,9 @@ type props = {
 };
 
 const CategoriesListCards = ({ list, searchValue, onPress }: props) => (
-  <View ai={'flex-start'} jc={'center'}>
+  <View style={styles.categoryContainer}>
     {searchValue && (
-      <Text ml={20} pb={20} fos={20} fow={'700'}>
+      <Text style={styles.categoryText}>
         Para "{searchValue}" se ha encontrado...
       </Text>
     )}
@@ -21,15 +21,35 @@ const CategoriesListCards = ({ list, searchValue, onPress }: props) => (
       data={list}
       renderItem={({ item }) => <CardCategory onPress={onPress} item={item} />}
       keyExtractor={(item) => `${item.id}`}
-      numColumns={2}
-      contentContainerStyle={{
-        justifyContent: 'space-around',
-        alignItems: 'center',
-        flexDirection: 'column',
-        paddingBottom: 100,
-      }}
+      numColumns={4}
+      scrollEnabled={false}
     />
+    <TouchableOpacity style={styles.containerSubTitle}>
+      <Text style={styles.allCategoriesText}>Ver todas las categorias</Text>
+    </TouchableOpacity>
   </View>
 );
+
+const styles = StyleSheet.create({
+  allCategoriesText: {
+    fontSize: 14,
+    fontWeight: 'bold',
+  },
+  categoryText: {
+    marginLeft: 20,
+    fontSize: 16,
+    fontWeight: '700',
+  },
+  categoryContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  containerSubTitle: {
+    marginTop: 30
+  },
+  SubTitle: {
+    fontSize: 20
+  },
+})
 
 export default memo(CategoriesListCards);

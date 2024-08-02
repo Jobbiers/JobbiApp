@@ -24,7 +24,7 @@ export default [
   },
   {
     id: 3,
-    name: 'Jardin',
+    name: 'Jardín',
     vector: 'grass',
     type: Icons.MaterialIcons,
     timeStamp: '',
@@ -38,14 +38,14 @@ export default [
   },
   {
     id: 5,
-    name: 'Construccion',
+    name: 'Construcción',
     vector: 'construction',
     type: Icons.MaterialIcons,
     timeStamp: '',
   },
   {
     id: 6,
-    name: 'Salud',
+    name: 'Salúd',
     vector: 'health-and-safety',
     type: Icons.MaterialIcons,
     timeStamp: '',

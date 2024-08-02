@@ -1,5 +1,5 @@
-import { Icon, Icons, TextInput, View } from '@jobbi/ui/src/components';
-import { StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { Icon, Icons, TextInput, View, Text } from '@jobbi/ui/src/components';
+import { StyleSheet, TouchableOpacity } from 'react-native';
 import { useAppSelector } from '../../../store/hooks';
 import { defaultTheme } from '@jobbi/ui/src/theme';
 import useTheme from '@jobbi/ui/src/theme/useTheme';
@@ -16,17 +16,17 @@ const Header = () => {
   return (
     <View style={{ padding: theme.spacing.md }}>
       <View style={styles.container}>
-        <Text style={styles.title}>Jobbi</Text>
+        <Text style={styles.title} tx={'home.title'}/>
         <TouchableOpacity onPress={pressButton}>
           <Icon type={Icons.Feather} name="message-circle" />
         </TouchableOpacity>
       </View>
       <View style={styles.userInfo}>
-        <Text style={styles.userText}>Hola, {user.name.split(' ')[0]}!</Text>
+        <Text style={styles.userText} tx='home.grettingsUser' txOptions={{username: user.name.split(' ')[0]}}></Text>
         <TouchableOpacity onPress={pressButton}>
           <Text style={styles.adressText}>{user.adress}</Text>
         </TouchableOpacity>
-        <TextInput style={styles.textInput} placeholder="Buscar">
+        <TextInput style={styles.textInput} placeholderTx="home.placeholder">
         </TextInput>
       </View>
     </View>
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.body,
     fontFamily: 'PublicSansRegular',
     color: 'gray',
-    marginTop: spacing.xs,
+    marginTop: spacing.tiny,
     textDecorationLine: 'underline',
   },
   container: {

@@ -2,7 +2,8 @@ import { Icon, Icons, Text } from '@jobbi/ui/src/components';
 import { TouchableOpacity, Dimensions, StyleSheet, View } from 'react-native';
 import globalStyles from '../../../../../globalStyles';
 import { Category } from '../../../interfaces/Category.interface';
-
+import { defaultTheme } from '@jobbi/ui/src/theme';
+const { fontSizes, spacing } = defaultTheme;
 const { width } = Dimensions.get('screen');
 
 type Props = {
@@ -18,8 +19,8 @@ const CardCategory = ({ item, onPress }: Props) => (
         borderRadius: 20,
         height: width * 0.22,
         width: width * 0.22,
-        marginHorizontal: 5,
-        marginVertical: 10,
+        marginHorizontal: spacing.xs,
+        marginVertical: spacing.sm,
         ...globalStyles.lightBg,
         alignItems: 'center',
         justifyContent: 'center',
@@ -38,8 +39,8 @@ const styles = StyleSheet.create({
     flexDirection: 'column'
   },
   categoryName: {
-    fontSize: 12,
-    marginBottom: 4,
+    fontSize: fontSizes.caption,
+    marginBottom: spacing.sm,
   },
 });
 

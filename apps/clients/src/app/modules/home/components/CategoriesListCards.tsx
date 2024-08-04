@@ -3,6 +3,8 @@ import { memo } from 'react';
 import { FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import { Category } from '../../../interfaces/Category.interface';
 import CardCategory from './CardCategory';
+import { defaultTheme } from '@jobbi/ui/src/theme';
+const { fontSizes, spacing } = defaultTheme;
 
 type props = {
   list: Category[];
@@ -25,19 +27,19 @@ const CategoriesListCards = ({ list, searchValue, onPress }: props) => (
       scrollEnabled={false}
     />
     <TouchableOpacity style={styles.containerSubTitle}>
-      <Text style={styles.allCategoriesText}>Ver todas las categorias</Text>
+      <Text style={styles.allCategoriesText} tx='categoryList.allCategories' />
     </TouchableOpacity>
   </View>
 );
 
 const styles = StyleSheet.create({
   allCategoriesText: {
-    fontSize: 14,
-    fontWeight: 'bold',
+    fontSize: fontSizes.body,
+    fontFamily: 'PublicSansBold'
   },
   categoryText: {
     marginLeft: 20,
-    fontSize: 16,
+    fontSize: fontSizes.body,
     fontWeight: '700',
   },
   categoryContainer: {
@@ -45,11 +47,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   containerSubTitle: {
-    marginTop: 30
-  },
-  SubTitle: {
-    fontSize: 20
-  },
+    marginTop: spacing.xl
+  }
 })
 
 export default memo(CategoriesListCards);

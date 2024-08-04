@@ -35,6 +35,7 @@ export type Theme = {
     caption: number;
   };
   spacing: {
+    tiny: number;
     xs: number;
     sm: number;
     md: number;
@@ -76,7 +77,8 @@ export const defaultTheme: Theme = {
     caption: 12,
   },
   spacing: {
-    xs: 2,
+    tiny: 2,
+    xs: 5,
     sm: 8,
     md: 14,
     lg: 18,

@@ -1,5 +1,6 @@
-import React from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React, { useEffect, useRef } from 'react';
+// @ts-ignore
+import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView, View } from 'react-native';
 import { Icon, Icons } from '@jobbi/ui/src/components';
@@ -79,7 +80,11 @@ export const PrivateRoutes = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <Tab.Navigator
         initialRouteName="HomeStack"
-        screenOptions={() => ({})}
+        screenOptions={() => ({
+          tabBarStyle: {
+             backgroundColor: colors.background,
+          },
+        })}
       >
         {pages.map((page, index) => {
           return (

@@ -10,10 +10,6 @@ import { ThemeProvider } from '@jobbi/ui/src/theme/ThemeProvider';
 import { Root } from '@jobbi/ui/src/components';
 import { Provider } from 'react-redux';
 import { store } from './src/app/store';
-import { I18n } from 'i18n-js';
-import { translations } from '@jobbi/common/src/i18n';
-
-export const i18n = new I18n(translations);
 
 export default function App() {
   const [fonstLoaded, fontError] = useFonts({
@@ -22,7 +18,6 @@ export default function App() {
     PublicSansBold: require('@jobbi/ui/assets/fonts/PublicSans-Bold.ttf'),
     CaveatBold: require('@jobbi/ui/assets/fonts/Caveat-Bold.ttf'),
   });
-  i18n.locale = 'es';
 
   if (!fonstLoaded) {
     return null;

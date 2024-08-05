@@ -1,11 +1,15 @@
 import { en } from './en/en-usa';
 import { es, Translations } from './es/es-ar';
+import { I18n } from 'i18n-js';
 
-export const translations = {
+const translations = {
   en,
   es,
 };
 
+export const i18n = new I18n(translations);
+
+i18n.locale = 'es';
 export type TranslationKeys = RecursiveKeyOf<Translations>
 
 // via: https://stackoverflow.com/a/65333050

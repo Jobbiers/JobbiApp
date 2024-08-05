@@ -9,6 +9,7 @@ export const es = {
     },
     categoryList: {
         allCategories: 'Ver todas las categorias',
+        placeholder: 'Buscar categoria',
     }
 }
 

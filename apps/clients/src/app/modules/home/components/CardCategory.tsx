@@ -1,9 +1,8 @@
 import { Icon, Icons, Text } from '@jobbi/ui/src/components';
 import { TouchableOpacity, Dimensions, StyleSheet, View } from 'react-native';
-import globalStyles from '../../../../../globalStyles';
 import { Category } from '../../../interfaces/Category.interface';
 import { defaultTheme } from '@jobbi/ui/src/theme';
-const { fontSizes, spacing } = defaultTheme;
+const { fontSizes, spacing, colors } = defaultTheme;
 const { width } = Dimensions.get('screen');
 
 type Props = {
@@ -16,12 +15,12 @@ const CardCategory = ({ item, onPress }: Props) => (
     <TouchableOpacity
       onPress={() => onPress(item)}
       style={{
-        borderRadius: 20,
+        borderRadius: spacing.lg,
         height: width * 0.22,
         width: width * 0.22,
         marginHorizontal: spacing.xs,
         marginVertical: spacing.sm,
-        ...globalStyles.lightBg,
+        backgroundColor: colors.background,
         alignItems: 'center',
         justifyContent: 'center',
       }}

@@ -4,7 +4,6 @@ import useTheme from '../theme/useTheme';
 import { FontSize } from '../theme';
 import { TranslationKeys } from '../../../common/src/i18n/index';
 import { translate } from '../../../common/src/i18n/translate';
-import { i18n } from '../../../../apps/clients/App';
 import { TranslateOptions } from 'i18n-js';
 
 export interface TextProps extends RNTextProps {

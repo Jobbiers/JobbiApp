@@ -96,8 +96,8 @@ const lightTheme: Theme = {
     secondary: '#ffffff',
     tertiary: '#cccccc',
     contrast: '#000000',
-
     background: '#ffffff',
+    'background-dark': '#F2F0F5',
     text: '#000000',
   },
 };
@@ -113,6 +113,7 @@ const darkTheme: Theme = {
     tertiary: '#cccccc',
     contrast: '#ffffff',
     background: '#121a20',
+    'background-dark': '#F2F0F5',
     text: '#ffffff',
   },
 };

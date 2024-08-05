@@ -44,14 +44,7 @@ const styles = StyleSheet.create({
     padding: spacing.tiny,
   },
   searchInput: {
-    height: 50,
     width: "95%",
-    borderColor: "gray",
-    borderWidth: 1,
-    borderRadius: 5,
-    paddingHorizontal: spacing.sm,
-    marginBottom: spacing.md,
-    fontSize: fontSizes.body,
   },
 });
 

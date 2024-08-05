@@ -26,8 +26,7 @@ const Header = () => {
         <TouchableOpacity onPress={pressButton}>
           <Text style={styles.adressText}>{user.adress}</Text>
         </TouchableOpacity>
-        <TextInput style={styles.textInput} placeholderTx="home.placeholder">
-        </TextInput>
+        <TextInput placeholderTx="home.placeholder" />
       </View>
     </View>
   );
@@ -59,16 +58,5 @@ const styles = StyleSheet.create({
   title: {
     fontFamily: 'CaveatBold',
     fontSize: fontSizes.subtitle,
-  },
-  textInput: {
-    flexDirection: 'row',
-    height: 50,
-    borderRadius: 10,
-    paddingHorizontal: spacing.md,
-    marginTop: spacing.md,
-    width: '100%',
-    fontFamily: 'PublicSansRegular',
-    fontSize: fontSizes.body,
-    backgroundColor: '#F2F0F5',
   },
 });

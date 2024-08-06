@@ -1,14 +1,17 @@
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, View } from '@jobbi/ui/src/components';
 import useTheme from '@jobbi/ui/src/theme/useTheme';
-import { Header, CategoriesListCards } from '../components';
+import { Header, CategoriesListCards, Loading } from '../components';
 import categories from '../../../mocks/Category.response';
 import { defaultTheme } from '@jobbi/ui/src/theme';
 import { Category } from '../../../interfaces/Category.interface';
+import { useEffect, useState } from 'react';
 const { fontSizes, spacing } = defaultTheme;
 
 const Home = ({ navigation }: any) => {
   const theme = useTheme();
+
+  const [isLoading, setIsLoading] = useState(true);
 
   const pressItem = (item: Category) => {
     navigation.navigate('CategoryDetail', {category: item});
@@ -18,9 +21,18 @@ const Home = ({ navigation }: any) => {
     navigation.navigate('Categories');
   };
 
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 200000);
+  }, []);
+
   return (
     <View>
       <Header />
+      {isLoading ? (
+        <Loading></Loading>
+      ) : (
       <View>
         <CategoriesListCards
           list={categories}
@@ -33,6 +45,7 @@ const Home = ({ navigation }: any) => {
           </TouchableOpacity>
         </View>
       </View>
+      )}
     </View>
   );
 };

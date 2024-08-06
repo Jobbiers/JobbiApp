@@ -49,6 +49,8 @@ export default [
         openingHours: ['09:00:00', '16:00:00'],
         professionalAssignedId: ProfessionalsResponse[0],
         servicesId: [0],
-        categoryId: 1
-    },
+        categoryId: 1,
+        verified: false,
+        calification: 80
+    }
 ]

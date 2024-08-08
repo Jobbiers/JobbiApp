@@ -3,7 +3,7 @@ import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { RouteProp, useRoute } from '@react-navigation/native';
 import BusinessResponse from '../../../mocks/Business.response';
 import { defaultTheme } from '@jobbi/ui/src/theme';
-import { SkeletonCardBusiness } from '../components';
+import { Loading, SkeletonCardBusiness } from '../components';
 import { Category } from '../../../interfaces/Category.interface';
 
 interface CategoryDetailParams {
@@ -25,11 +25,12 @@ const CategoryDetail = () => {
   return (
     <View style={styles.container}>
       {isLoading ? (
-        <FlatList
-          data={[1, 2, 3]} // Número de esqueletos a mostrar
-          keyExtractor={(item: number) => item.toString()}
-          renderItem={() => <SkeletonCardBusiness />}
-        />
+        <Loading></Loading>
+        // <FlatList
+        //   data={[1, 2, 3]} // Número de esqueletos a mostrar
+        //   keyExtractor={(item: number) => item.toString()}
+        //   renderItem={() => <SkeletonCardBusiness />}
+        // />
       ) : (
         <FlatList
           data={BusinessResponse.filter(
@@ -38,6 +39,7 @@ const CategoryDetail = () => {
           keyExtractor={(item: any) => item.id.toString()}
           renderItem={({ item }: { item: any }) => (
             <View style={styles.card}>
+              <Text style={styles.description}>{item.verified}</Text>
               <Text style={styles.businessName}>{item.name}</Text>
               <Text style={styles.description}>{item.description}</Text>
               <Text style={styles.hours}>

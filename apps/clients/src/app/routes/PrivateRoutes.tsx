@@ -82,18 +82,7 @@ export const PrivateRoutes = () => {
         initialRouteName="HomeStack"
         screenOptions={() => ({
           tabBarStyle: {
-            backgroundColor: colors.background,
-            position: 'absolute',
-            bottom: 16,
-            right: 16,
-            left: 16,
-            height: 70,
-            shadowColor: 'black',
-            shadowRadius: 20,
-            borderRadius: 50,
-            shadowOpacity: 0.1,
-            justifyContent: 'center',
-            alignItems: 'center',
+             backgroundColor: colors.background,
           },
         })}
       >

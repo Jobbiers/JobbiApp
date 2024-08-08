@@ -1,4 +1,5 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
+import { StyleProp, ViewStyle } from 'react-native';
 import {
   AntDesign,
   FontAwesome,
@@ -11,9 +12,9 @@ import {
   SimpleLineIcons,
   Octicons,
   Foundation,
-  EvilIcons
+  EvilIcons,
 } from '@expo/vector-icons';
-import { StyleProp, ViewStyle } from 'react-native';
+import { Colors, useTheme } from '../theme';
 
 export const Icons = {
   MaterialCommunityIcons,
@@ -33,18 +34,19 @@ export const Icons = {
 export interface IconProps {
   type: any;
   name: string;
-  color?: string;
+  color?: Colors;
   size?: number;
   style?: StyleProp<ViewStyle>;
 }
 
-const Icon = ({ type, name, color, size = 24, style }: IconProps) => {
+const Icon = ({ type, name, color = 'text', size = 24, style }: IconProps) => {
+  const { colors } = useTheme();
   const fontSize = 24;
   const Tag = type;
   return (
     <>
       {type && name && (
-        <Tag name={name} size={size || fontSize} color={color} style={style} />
+        <Tag name={name} size={size || fontSize} color={colors[color]} style={style} />
       )}
     </>
   );

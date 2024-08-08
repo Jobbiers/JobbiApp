@@ -1,7 +1,7 @@
 import React, { Children, useEffect } from 'react';
 import { Text as RNText, TextProps as RNTextProps } from 'react-native';
 import useTheme from '../theme/useTheme';
-import { FontSize } from '../theme';
+import { Colors, FontSize } from '../theme';
 import { TranslationKeys } from '../../../common/src/i18n/index';
 import { translate } from '../../../common/src/i18n/translate';
 import { TranslateOptions } from 'i18n-js';
@@ -14,6 +14,7 @@ export interface TextProps extends RNTextProps {
   txOptions?: TranslateOptions;
   text?: string;
   children?: React.ReactNode;
+  color?: Colors;
 }
 
 const Text: React.FC<TextProps> = ({
@@ -24,6 +25,7 @@ const Text: React.FC<TextProps> = ({
   txOptions,
   text,
   children,
+  color = 'text',
   ...props
 }) => {
   const { colors, fontSizes } = useTheme();
@@ -36,13 +38,15 @@ const Text: React.FC<TextProps> = ({
       {...props}
       style={[
         {
-          color: colors.text,
+          color: colors[color],
           fontFamily,
           fontSize: fontSizes[size],
         },
         props.style,
       ]}
-    >{content}</RNText>
+    >
+      {content}
+    </RNText>
   );
 };
 

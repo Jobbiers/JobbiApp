@@ -11,7 +11,7 @@ const Home = ({ navigation }: any) => {
   const theme = useTheme();
 
   const pressItem = (item: Category) => {
-    navigation.navigate('CategoryDetail', {category: item});
+    navigation.navigate('CategoryDetail', { category: item });
   };
 
   const pressAll = () => {
@@ -22,11 +22,7 @@ const Home = ({ navigation }: any) => {
     <View>
       <Header />
       <View>
-        <CategoriesListCards
-          list={categories}
-          onPress={pressItem}
-          searchValue=""
-        ></CategoriesListCards>
+        <CategoriesListCards list={categories} onPress={pressItem} searchValue="" />
         <View style={styles.mainContainer}>
           <TouchableOpacity style={styles.containerSubTitle} onPress={pressAll}>
             <Text style={styles.allCategoriesText} tx="categoryList.allCategories" />

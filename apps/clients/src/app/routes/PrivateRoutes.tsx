@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-// @ts-ignore
+import React from 'react';
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView, View } from 'react-native';
@@ -112,7 +111,7 @@ export const PrivateRoutes = () => {
                     <Icon
                       type={page.type}
                       name={focused ? page.activeIcon : page.inActiveIcon}
-                      color={focused ? colors.primary : colors.tertiary}
+                      color={focused ? 'primary' : 'tertiary'}
                       size={focused ? 35 : 25}
                     />
                   </View>

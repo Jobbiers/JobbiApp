@@ -9,4 +9,6 @@ export interface Business {
   openingHours: string[];
   professionalAssignedId: Professional;
   servicesId: Services[];
+  verified: boolean;
+  calification: number;
 }

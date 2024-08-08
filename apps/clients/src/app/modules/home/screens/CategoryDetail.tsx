@@ -26,11 +26,6 @@ const CategoryDetail = () => {
     <View style={styles.container}>
       {isLoading ? (
         <Loading></Loading>
-        // <FlatList
-        //   data={[1, 2, 3]} // Número de esqueletos a mostrar
-        //   keyExtractor={(item: number) => item.toString()}
-        //   renderItem={() => <SkeletonCardBusiness />}
-        // />
       ) : (
         <FlatList
           data={BusinessResponse.filter(

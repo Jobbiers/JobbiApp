@@ -24,7 +24,7 @@ const Home = ({ navigation }: any) => {
   useEffect(() => {
     setTimeout(() => {
       setIsLoading(false);
-    }, 200000);
+    }, 2000);
   }, []);
 
   return (

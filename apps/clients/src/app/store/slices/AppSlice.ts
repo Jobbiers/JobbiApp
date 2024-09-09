@@ -1,14 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const user = {
-  name: "Gonzalo Delbazi",
-  email: "gonzalo.delbazi@gmail.com",
-  adress: "Ecuador 258, Alta Gracia, Cordoba"
-}
-
 // Initial state
 const initialState = {
-  user: user,
+  user: null,
   errorMessage: ''
 };
 

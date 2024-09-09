@@ -1,8 +1,10 @@
 import { combineReducers } from '@reduxjs/toolkit';
-import authReducer from './reducers/AppSlice';
-import categoriesReducer from './reducers/CategoriesSlice';
+import authReducer from './slices/AppSlice';
+import categoriesReducer from './slices/CategoriesSlice';
+import loginReducer from './slices/LoginSlice';
 
 export default combineReducers({
     auth: authReducer,
-    categories: categoriesReducer
+    categories: categoriesReducer,
+    login: loginReducer
 });

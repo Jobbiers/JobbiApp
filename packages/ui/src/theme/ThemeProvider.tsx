@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ThemeContext, themes } from './';
+import { ThemeContext, themes } from './Theme';
 import { StatusBar, useColorScheme } from 'react-native';
 
 interface ThemeProviderProps {

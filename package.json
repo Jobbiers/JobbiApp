@@ -7,6 +7,8 @@
     "clean": "turbo run clean && rm -rf node_modules",
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md}\" --ignore-path .gitignore",
     "clients": "pnpm --filter clients dev",
+    "clients:ios": "pnpm --filter clients ios",
+    "clients:android": "pnpm --filter clients android",
     "turbo:clients": "turbo --filter clients dev",
     "partners": "pnpm --filter partners dev",
     "turbo:partners": "turbo --filter partners dev"

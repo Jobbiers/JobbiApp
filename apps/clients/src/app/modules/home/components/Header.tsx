@@ -24,7 +24,7 @@ const Header = () => {
       <View style={styles.userInfo}>
         <Text style={styles.userText} tx='home.grettingsUser' txOptions={{username: user.name.split(' ')[0]}}></Text>
         <TouchableOpacity onPress={pressButton}>
-          <Text style={styles.adressText}>{user.adress}</Text>
+          <Text style={styles.addressText}>{user.address}</Text>
         </TouchableOpacity>
         <TextInput placeholderTx="home.placeholder" />
       </View>
@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     fontSize: fontSizes.title,
     fontFamily: 'PublicSansRegular',
   },
-  adressText: {
+  addressText: {
     fontSize: fontSizes.body,
     fontFamily: 'PublicSansRegular',
     color: 'gray',

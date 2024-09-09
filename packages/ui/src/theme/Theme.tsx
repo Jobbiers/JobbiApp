@@ -73,7 +73,7 @@ export const defaultTheme: Theme = {
   fontSizes: {
     title: 32,
     subtitle: 24,
-    body: 14,
+    body: 16,
     caption: 12,
   },
   spacing: {
@@ -90,9 +90,12 @@ const lightTheme: Theme = {
   ...defaultTheme,
   colors: {
     ...defaultTheme.colors,
-    primary: '#5ca3ca',
-    'primary-light': '#88b7d0',
-    'primary-dark': '#1a668e',
+    primary: '#b193ff',
+    'primary-light': '#B08CFF',
+    'primary-dark': '#4A23B3',
+    // primary: '#5ca3ca',
+    // 'primary-light': '#88b7d0',
+    // 'primary-dark': '#1a668e',
     secondary: '#ffffff',
     tertiary: '#cccccc',
     contrast: '#000000',

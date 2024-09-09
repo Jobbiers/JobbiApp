@@ -15,6 +15,6 @@ export const Routes = () => {
   };
 
   return (
-    <NavigationContainer theme={{ ...navTheme }}>{true && <PrivateRoutes />}</NavigationContainer>
+    <NavigationContainer theme={{ ...navTheme }}>{true && <AuthRoutes />}</NavigationContainer>
   );
 };

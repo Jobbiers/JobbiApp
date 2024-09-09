@@ -1,8 +1,7 @@
 import { createStackNavigator } from '@react-navigation/stack';
-import WelcomePage from '../Screens/WelcomePage';
-import LoginPage from '../Screens/LoginPage';
-import SignUpPage from '../Screens/SignUpPage';
-import TestPage from '../Screens/TestPage';
+import WelcomePage from '../modules/public/screens/WelcomePage';
+import LoginPage from '../modules/public/screens/LoginPage';
+import SignUpPage from '../modules/public/screens/SignUpPage';
 
 const Stack = createStackNavigator();
 
@@ -13,7 +12,6 @@ export const AuthRoutes = () => {
         <Stack.Screen name="WelcomePage" component={WelcomePage} options={{ headerShown: false }} />
         <Stack.Screen name="LoginPage" component={LoginPage} options={{ headerShown: false }} />
         <Stack.Screen name="SignUpPage" component={SignUpPage} options={{ headerShown: false }} />
-        <Stack.Screen name="TestPage" component={TestPage} options={{ headerShown: false }} />
       </Stack.Navigator>
     </>
   );

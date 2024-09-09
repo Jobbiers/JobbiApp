@@ -3,7 +3,7 @@ import {
   setCategories,
   setCategorySelected,
   setMessage,
-} from '../../../store/reducers/CategoriesSlice';
+} from '../../../store/slices/CategoriesSlice';
 import { useAppSelector } from '../../../store/hooks';
 
 export const useCategorieList = () => {

@@ -3,25 +3,37 @@ import Pressable, { PressableProps } from './Pressable';
 import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import Text, { TextProps } from './Text';
 import { Colors, ColorVariants } from '../theme';
+import { TranslationKeys } from '../../../common/src/i18n';
+import { TranslateOptions } from 'i18n-js';
+import { translate } from '../../../common/src/i18n/translate';
 
 interface ButtonProps extends PressableProps {
   style?: StyleProp<ViewStyle>;
   textProps?: TextProps;
   title?: string;
+  tx?: TranslationKeys;
+  txOptions?: TranslateOptions;
   color?: ColorVariants;
   onPress: () => void;
+  leftAccessory?: React.ReactNode;
+  rightAccessory?: React.ReactNode;
 }
 
-// TODO: add icon prop
 const Button: React.FC<ButtonProps> = ({
   title,
+  tx,
+  txOptions,
   textProps,
   color = 'primary',
   padding = 'md',
   style,
+  leftAccessory,
+  rightAccessory,
   ...props
 }) => {
   const underlayColor = `${color}-light` as Colors;
+  const i18nText = tx && translate(tx, txOptions);
+  const content = i18nText || title ;
 
   return (
     <Pressable
@@ -31,16 +43,19 @@ const Button: React.FC<ButtonProps> = ({
       {...props}
       style={[styles.base, style]}
     >
-      {title && <Text {...textProps}>{title}</Text>}
+      {leftAccessory && leftAccessory}
+      {content && <Text {...textProps}>{content}</Text>}
+      {rightAccessory && rightAccessory}
     </Pressable>
   );
 };
 
 const styles = StyleSheet.create({
   base: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    borderRadius: 25,
+    flexDirection: 'row',
   },
 });
 export default Button;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Image, Keyboard, KeyboardAvoidingView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { View, Text, TextInput, Button } from '@jobbi/ui/src/components';
 import { LinearGradient } from 'expo-linear-gradient';
 import { defaultTheme, useTheme } from '@jobbi/ui/src/theme';
@@ -13,6 +13,8 @@ const SignUpPage = ({ navigation }: any) => {
   
   return (
     <View style={styles.container}>
+      <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <LinearGradient
         colors={[colors['primary-light'], colors.background]}
         style={styles.linearContainer}
@@ -37,6 +39,8 @@ const SignUpPage = ({ navigation }: any) => {
         />
         <Button onPress={goLogin} style={styles.signUpButton} tx="signupPage.signUp" />
       </LinearGradient>
+      </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </View>
   );
 };

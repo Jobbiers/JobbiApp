@@ -2,7 +2,7 @@ import { View, Text, TextInput, Button } from '@jobbi/ui/src/components';
 import { defaultTheme, useTheme } from '@jobbi/ui/src/theme';
 import { LinearGradient } from 'expo-linear-gradient';
 import React from 'react';
-import { Image, StyleSheet } from 'react-native';
+import { Image, Keyboard, KeyboardAvoidingView, StyleSheet, TouchableWithoutFeedback } from 'react-native';
 import { useLogin } from '../hooks/use-login';
 const { fontSizes, spacing } = defaultTheme;
 const image = require('../../../../../assets/image.png');
@@ -12,6 +12,8 @@ const LoginPage = ({ navigation }: any) => {
   const { colors } = useTheme();
   return (
     <View style={styles.container}>
+      <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <LinearGradient
         colors={[colors['primary-light'], colors.background]}
         style={styles.linearContainer}
@@ -45,6 +47,8 @@ const LoginPage = ({ navigation }: any) => {
         />
         <Button onPress={signUp} style={styles.signUpButton} tx="loginPage.signUp" />
       </LinearGradient>
+      </TouchableWithoutFeedback>
+      </KeyboardAvoidingView>
     </View>
   );
 };

@@ -24,7 +24,7 @@ const LoginPage = ({ navigation }: any) => {
         </View>
         <View style={styles.buttonContainer}>
           <TextInput style={styles.input} placeholderTx="loginPage.placeholderUser" />
-          <TextInput style={styles.input} placeholderTx="loginPage.placeholderPassword" />
+          <TextInput style={styles.input} secureTextEntry={true} placeholderTx="loginPage.placeholderPassword" />
         </View>
         <Button
           style={[styles.button]}
@@ -43,9 +43,9 @@ const LoginPage = ({ navigation }: any) => {
           color={'background'}
           tx="loginPage.googleButton"
           onPress={logInWithGoogle}
-          textProps={{ style: styles.buttonText }}
+          textProps={{ style: styles.buttonTextGoogle }}
         />
-        <Button onPress={signUp} style={styles.signUpButton} tx="loginPage.signUp" />
+        <Button onPress={signUp} style={styles.signUpButton} tx="loginPage.signUp" textProps={{ style: styles.textSignUp }}/>
       </LinearGradient>
       </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
@@ -103,24 +103,36 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: fontSizes.body,
+    color: '#333333'
+  },
+  textSignUp: {
+    fontSize: fontSizes.body,
+    textDecorationLine: 'underline'
+  },
+  buttonTextGoogle: {
+    fontSize: fontSizes.body,
+    color: 'white'
   },
   button: {
     height: 60,
     width: '100%',
     borderRadius: 15,
+    borderColor: 'gray',
+    borderWidth: 0.5,
   },
   googleButton: {
     height: 60,
     width: '100%',
     borderColor: 'gray',
     borderWidth: 0.5,
-    backgroundColor: 'white',
+    backgroundColor: '#e86456',
     borderRadius: 15,
     marginBottom: spacing.tiny,
   },
   signUpButton: {
     alignSelf: 'flex-start',
     backgroundColor: 'transparent',
+    marginTop: 20
   },
   input: {
     height: 60,

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import UserApi from '../../../services/UserApi';
 import { setUser } from '../../../store/slices/AppSlice';
 
-export const useSignup = ({ navigation }: any) => {
+export const useSignup = (navigation: any) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -11,7 +11,7 @@ export const useSignup = ({ navigation }: any) => {
     try {
       const userApi = new UserApi();
       const user = await userApi.createUser(data);
-    //   setUser(user)
+      //   setUser(user)
       console.log(user)
       setLoading(false);
     } catch (error) {

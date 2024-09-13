@@ -20,7 +20,7 @@ const loginSlice = createSlice({
     addLoading: (state, action: PayloadAction<boolean>) => {
       state.isLoading = action.payload;
     },
-    addMessage: (state, action: PayloadAction<string>) => {
+    addErrorMessage: (state, action: PayloadAction<string>) => {
       state.errorMessage = action.payload;
     },
     addUserText: (state, action: PayloadAction<string>) => {
@@ -36,7 +36,7 @@ const loginSlice = createSlice({
 export const { 
     addUser,
     addLoading, 
-    addMessage,
+    addErrorMessage,
     addUserText,
     addUserPassword
 } = loginSlice.actions;

@@ -1,8 +1,8 @@
-import { useDispatch } from 'react-redux';
-import { useAppSelector } from '../../../store/hooks';
-import { addUser, addUserPassword, addUserText } from '../../../store/slices/LoginSlice';
-// import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import { useAppDispatch, useAppSelector } from '../../../store/hooks';
+import { addUser, addUserPassword, addUserText, addLoading } from '../../../store/slices/LoginSlice';
 import UserApi from '../../../services/UserApi';
+import { loginUser } from '../actions/userActions';
+// import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
 const user = {
   name: 'Gonzalo Delbazi',
@@ -12,14 +12,13 @@ const user = {
 
 export const useLogin = (navigation: any) => {
   const userApi = new UserApi();
-  const dispatch = useDispatch();
-  const { userText, password } = useAppSelector((state) => state.login);
+  const dispatch = useAppDispatch();
+  const { userText, password, isLoading } = useAppSelector((state) => state.login);
 
   const logIn = async () => {
-    console.log('Login');
-    const resp = await userApi.logIn({user: userText, password})
-    console.log(resp)
-    dispatch(addUser(user));
+    dispatch(addLoading(true));
+    await dispatch(loginUser({email: userText.toLowerCase(), password}))
+    dispatch(addLoading(false));
   };
 
   const logInWithGoogle = async () => {
@@ -55,5 +54,6 @@ export const useLogin = (navigation: any) => {
     setPassword,
     userText,
     password,
+    isLoading
   };
 };

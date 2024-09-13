@@ -13,7 +13,7 @@ import { useSignup } from '../hooks/use-signup';
 const { fontSizes, spacing } = defaultTheme;
 const image = require('../../../../../assets/image.png');
 
-const SignUpPage = ({ navigation }: any) => {
+const SignUpPage = ( navigation : any) => {
   const { colors } = useTheme();
   const {
     goLogin,
@@ -131,7 +131,7 @@ const SignUpPage = ({ navigation }: any) => {
               isLoading={loading}
               textProps={{ style: styles.buttonText }}
             />
-            <Button onPress={goLogin} style={styles.signUpButton} tx="signupPage.signUp" />
+            <Button onPress={goLogin} style={styles.signUpButton} tx="signupPage.signUp" textProps={{ style: styles.loginText }}/>
           </LinearGradient>
         </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
@@ -191,6 +191,7 @@ const styles = StyleSheet.create({
   signUpButton: {
     alignSelf: 'flex-start',
     backgroundColor: 'transparent',
+    marginTop: 20
   },
   input: {
     height: 60,

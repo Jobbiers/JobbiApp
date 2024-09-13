@@ -7,7 +7,7 @@ import { useLogin } from '../hooks/use-login';
 const { fontSizes, spacing } = defaultTheme;
 const image = require('../../../../../assets/image.png');
 
-const LoginPage = ({ navigation }: any) => {
+const LoginPage = ( navigation : any) => {
   const { logIn, logInWithGoogle, signUp, setUser, setPassword, isLoading } = useLogin(navigation);
   const { colors } = useTheme();
   return (

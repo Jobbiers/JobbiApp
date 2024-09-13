@@ -10,6 +10,9 @@ export type ColorsScheme = {
   ['tertiary']: string;
   ['tertiary-light']: string;
   ['tertiary-dark']: string;
+  ['google']: string;
+  ['google-light']: string;
+  ['google-dark']: string;
   ['contrast']: string;
   ['contrast-light']: string;
   ['contrast-dark']: string;
@@ -55,6 +58,9 @@ export const defaultTheme: Theme = {
     tertiary: '',
     'tertiary-light': '',
     'tertiary-dark': '',
+    google: '',
+    'google-light': '',
+    'google-dark': '',
     contrast: '',
     'contrast-light': '',
     'contrast-dark': '',
@@ -98,6 +104,9 @@ const lightTheme: Theme = {
     // 'primary-dark': '#1a668e',
     secondary: '#ffffff',
     tertiary: '#cccccc',
+    google: '#e86456',
+    'google-light': '#f5a29d',
+    'google-dark': '#b85147',
     contrast: '#000000',
     background: '#f5f5f5',
     'background-light': '#ffffff',
@@ -116,6 +125,9 @@ const darkTheme: Theme = {
     'primary-dark': '#034660',
     secondary: '#000000',
     tertiary: '#cccccc',
+    google: '#e86456',
+    'google-light': '#f5a29d',
+    'google-dark': '#b85147',
     contrast: '#ffffff',
     background: '#121a20',
     'background-light': '#1a2a30',

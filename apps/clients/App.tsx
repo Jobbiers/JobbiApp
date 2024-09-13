@@ -10,14 +10,11 @@ import { ThemeProvider } from '@jobbi/ui/src/theme/ThemeProvider';
 import { Root } from '@jobbi/ui/src/components';
 import { Provider } from 'react-redux';
 import { store } from './src/app/store';
+import { customFonts } from '../../packages/ui/src/utils/fonts';
+import "@jobbi/ui/src/utils/configFirebase"
 
 export default function App() {
-  const [fonstLoaded, fontError] = useFonts({
-    PublicSansRegular: require('@jobbi/ui/assets/fonts/PublicSans-Regular.ttf'),
-    PublicSansSemi: require('@jobbi/ui/assets/fonts/PublicSans-SemiBold.ttf'),
-    PublicSansBold: require('@jobbi/ui/assets/fonts/PublicSans-Bold.ttf'),
-    CaveatBold: require('@jobbi/ui/assets/fonts/Caveat-Bold.ttf'),
-  });
+  const [fonstLoaded, fontError] = useFonts(customFonts);
 
   if (!fonstLoaded) {
     return null;

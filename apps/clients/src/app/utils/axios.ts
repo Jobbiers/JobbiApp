@@ -1,5 +1,6 @@
+import { auth } from '@jobbi/ui/src/utils/configFirebase';
 import axios, { AxiosInstance } from 'axios';
-// import { auth } from 'firebase';
+import { onAuthStateChanged } from 'firebase/auth';
 
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: process.env.API_URL, // URL base de la API
@@ -8,10 +9,9 @@ const axiosInstance: AxiosInstance = axios.create({
 
 axiosInstance.interceptors.request.use(
   async (config) => {
-    // const token = await auth.currentUser?.getIdToken();
-    const token = 'unt0ken';
+    const token = await auth.currentUser?.getIdToken();
     if (token) {
-      config.headers['Authorization'] = `Bearer ${token}`;
+      config.headers.authorization = `Bearer ${token}`;
     }
     return config;
   },

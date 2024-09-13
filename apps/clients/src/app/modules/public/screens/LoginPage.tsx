@@ -8,7 +8,7 @@ const { fontSizes, spacing } = defaultTheme;
 const image = require('../../../../../assets/image.png');
 
 const LoginPage = ({ navigation }: any) => {
-  const { logIn, logInWithGoogle, signUp } = useLogin(navigation);
+  const { logIn, logInWithGoogle, signUp, setUser, setPassword, isLoading } = useLogin(navigation);
   const { colors } = useTheme();
   return (
     <View style={styles.container}>
@@ -23,13 +23,15 @@ const LoginPage = ({ navigation }: any) => {
           {/* <Text style={styles.title} tx="loginPage.subtitle" /> */}
         </View>
         <View style={styles.buttonContainer}>
-          <TextInput style={styles.input} placeholderTx="loginPage.placeholderUser" />
-          <TextInput style={styles.input} placeholderTx="loginPage.placeholderPassword" />
+          <TextInput style={styles.input} onChangeText={setUser} placeholderTx="loginPage.placeholderUser" />
+          <TextInput style={styles.input} onChangeText={setPassword} placeholderTx="loginPage.placeholderPassword" />
         </View>
         <Button
           style={[styles.button]}
           color={'primary'}
           title="Iniciar Sesión"
+          disabled={isLoading}
+          isLoading={isLoading}
           onPress={logIn}
           textProps={{ style: styles.buttonText }}
         />

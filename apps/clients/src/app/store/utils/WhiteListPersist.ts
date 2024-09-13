@@ -1,1 +1,1 @@
-export const whiteListPersist = [];
+export const whiteListPersist = ['auth'];

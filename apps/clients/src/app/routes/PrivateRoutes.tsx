@@ -2,15 +2,18 @@ import React from 'react';
 import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SafeAreaView, View } from 'react-native';
-import { Icon, Icons } from '@jobbi/ui/src/components';
+import { Button, Icon, Icons } from '@jobbi/ui/src/components';
 import HomeStack from '../modules/home/routes/HomeStack';
 import useTheme from '@jobbi/ui/src/theme/useTheme';
+import { logOut } from '../modules/public/actions/userActions';
+import { useAppDispatch } from '../store/hooks';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const ExampleComponent = () => {
-  return <></>;
+  const dispatch = useAppDispatch();
+  return <Button title='Cerrar sesion' onPress={() => dispatch(logOut())}></Button>;
 };
 
 const AccountStack = () => (

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { TextInput as RNTextInput, TextInputProps } from 'react-native';
 import { TranslationKeys } from '../../../common/src/i18n';
 import { translate } from '../../../common/src/i18n/translate';
@@ -81,4 +81,4 @@ const TextInput: React.FC<TextInputPropsRN> = (props) => {
   );
 };
 
-export default TextInput;
+export default memo(TextInput);

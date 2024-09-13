@@ -1,6 +1,6 @@
 import React from 'react';
 import Pressable, { PressableProps } from './Pressable';
-import { StyleProp, StyleSheet, ViewStyle } from 'react-native';
+import { ActivityIndicator, StyleProp, StyleSheet, ViewStyle } from 'react-native';
 import Text, { TextProps } from './Text';
 import { Colors, ColorVariants } from '../theme';
 import { TranslationKeys } from '../../../common/src/i18n';
@@ -15,6 +15,7 @@ interface ButtonProps extends PressableProps {
   txOptions?: TranslateOptions;
   color?: ColorVariants;
   onPress: () => void;
+  isLoading?: boolean;
   leftAccessory?: React.ReactNode;
   rightAccessory?: React.ReactNode;
 }
@@ -27,6 +28,7 @@ const Button: React.FC<ButtonProps> = ({
   color = 'primary',
   padding = 'md',
   style,
+  isLoading,
   leftAccessory,
   rightAccessory,
   ...props
@@ -44,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
       style={[styles.base, style]}
     >
       {leftAccessory && leftAccessory}
-      {content && <Text {...textProps}>{content}</Text>}
+      {isLoading ? <ActivityIndicator color={'black'} /> : content && <Text {...textProps}>{content}</Text>}
       {rightAccessory && rightAccessory}
     </Pressable>
   );

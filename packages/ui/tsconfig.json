@@ -1,8 +1,14 @@
 {
   "extends": "@jobbi/typescript-config/react-native-library",
-  "include": ["."],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx"
+  ],
   "exclude": ["dist", "build", "node_modules"],
   "compilerOptions": {
-    "strict": true
+    "strict": true,
+    "paths": {
+      "@firebase/auth": ["../../node_modules/@firebase/auth/dist/index.rn.d.ts"]
+    }
   }
 }

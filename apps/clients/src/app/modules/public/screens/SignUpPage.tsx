@@ -4,42 +4,127 @@ import { View, TextInput, Button } from '@jobbi/ui/src/components';
 import { LinearGradient } from 'expo-linear-gradient';
 import { defaultTheme, useTheme } from '@jobbi/ui/src/theme';
 import { useSignup } from '../hooks/use-signup';
+import { validEmail, validPassword, validString } from '@jobbi/ui/src/utils/validations';
 const { fontSizes, spacing } = defaultTheme;
 const image = require('../../../../../assets/image.png');
 
 const SignUpPage = ({ navigation }: any) => {
   const { colors } = useTheme();
-  const { goLogin,  } = useSignup(navigation)
+  const {
+    goLogin,
+    signup,
+    loading,
+    setEmailText,
+    setLastNameText,
+    setNameText,
+    setPasswordText,
+    setRepeatPasswordText,
+    emailText,
+    passwordText,
+    repeatPasswordText,
+    nameText,
+    lastNameText,
+    setDirtyEmail,
+    setDirtyLastName,
+    setDirtyName,
+    setDirtyPassword,
+    setDirtyRepeatPassword,
+    validateName,
+    validateLastName,
+    validateEmail,
+    validatePassword,
+    validateRepeatPass,
+    validateForm,
+  } = useSignup(navigation);
 
   return (
     <View style={styles.container}>
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
-        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-          <LinearGradient
-            colors={[colors['primary-light'], colors.background]}
-            style={styles.linearContainer}
-          >
-            <View style={styles.headerContainer}>
-              <Image source={image} style={{ height: 150, width: 200 }} />
-              {/* <Text style={styles.title} tx="loginPage.subtitle" /> */}
-            </View>
-            <View style={styles.buttonContainer}>
-              <TextInput style={styles.input} placeholderTx="signupPage.placeholderName" />
-              <TextInput style={styles.input} placeholderTx="signupPage.placeholderLastName" />
-              <TextInput style={styles.input} placeholderTx="signupPage.placeholderEmail" />
-              <TextInput style={styles.input} placeholderTx="signupPage.placeholderPassword" secureTextEntry={true} />
-            </View>
-            <Button
-              style={[styles.button]}
-              color={'primary'}
-              tx='signupPage.register'
-              title="Iniciar Sesión"
-              onPress={() => {}}
-              textProps={{ style: styles.buttonText }}
-            />
-            <Button onPress={goLogin} style={styles.loginButton} tx="signupPage.signUp" textProps={{ style: styles.loginText }} />
-          </LinearGradient>
-        </TouchableWithoutFeedback>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+      <LinearGradient
+        colors={[colors['primary-light'], colors.background]}
+        style={styles.linearContainer}
+      >
+        <View style={styles.headerContainer}>
+          <Image source={image} style={{ height: 150, width: 200 }} />
+          {/* <Text style={styles.title} tx="loginPage.subtitle" /> */}
+        </View>
+        <View style={styles.buttonContainer}>
+          <TextInput
+            style={[
+              styles.input,
+              {
+                borderColor: validateName ? 'transparent' : 'red',
+              },
+            ]}
+            value={nameText}
+            onChangeText={setNameText}
+            onBlur={() => setDirtyName(true)}
+            placeholderTx="signupPage.placeholderName"
+          />
+          <TextInput
+            style={[
+              styles.input,
+              {
+                borderColor: validateLastName ? 'transparent' : 'red',
+              },
+            ]}
+            value={lastNameText}
+            onChangeText={setLastNameText}
+            onBlur={() => setDirtyLastName(true)}
+            placeholderTx="signupPage.placeholderLastName"
+          />
+          <TextInput
+            style={[
+              styles.input,
+              {
+                borderColor: validateEmail ? 'transparent' : 'red',
+              },
+            ]}
+            value={emailText}
+            onChangeText={setEmailText}
+            onBlur={() => setDirtyEmail(true)}
+            placeholderTx="signupPage.placeholderEmail"
+          />
+          <TextInput
+            style={[
+              styles.input,
+              {
+                borderColor: validatePassword ? 'transparent' : 'red',
+              },
+            ]}
+            value={passwordText}
+            onChangeText={setPasswordText}
+            onBlur={() => setDirtyPassword(true)}
+            secureTextEntry={true}
+            placeholderTx="signupPage.placeholderPassword"
+          />
+          <TextInput
+            style={[
+              styles.input,
+              {
+                borderColor: validateRepeatPass ? 'transparent' : 'red',
+              },
+            ]}
+            value={repeatPasswordText}
+            onChangeText={setRepeatPasswordText}
+            onFocus={() => setDirtyRepeatPassword(true)}
+            secureTextEntry={true}
+            placeholderTx="signupPage.placeholderRepeatPassword"
+          />
+        </View>
+        <Button
+          style={[styles.button]}
+          color={!validateForm ? 'tertiary' : 'primary'}
+          tx="signupPage.register"
+          onPress={signup}
+          disabled={!validateForm || (validateForm && loading)}
+          isLoading={loading}
+          textProps={{ style: styles.buttonText }}
+        />
+        <Button onPress={goLogin} style={styles.signUpButton} tx="signupPage.signUp" />
+      </LinearGradient>
+      </TouchableWithoutFeedback>
       </KeyboardAvoidingView>
     </View>
   );
@@ -93,6 +178,10 @@ const styles = StyleSheet.create({
   loginText: {
     color: '#333333',
     textDecorationLine: 'underline'
+  },
+  signUpButton: {
+    alignSelf: 'flex-start',
+    backgroundColor: 'transparent',
   },
   input: {
     height: 60,

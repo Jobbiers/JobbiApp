@@ -8,7 +8,7 @@ const { fontSizes, spacing } = defaultTheme;
 const image = require('../../../../../assets/image.png');
 
 const LoginPage = ({ navigation }: any) => {
-  const { logIn, logInWithGoogle, signUp } = useLogin(navigation);
+  const { logIn, logInWithGoogle, signUp, setUser, setPassword, isLoading } = useLogin(navigation);
   const { colors } = useTheme();
   return (
     <View style={styles.container}>
@@ -20,16 +20,17 @@ const LoginPage = ({ navigation }: any) => {
       >
         <View style={styles.headerContainer}>
           <Image source={image} style={{ height: 150, width: 200 }} />
-          {/* <Text style={styles.title} tx="loginPage.subtitle" /> */}
         </View>
         <View style={styles.buttonContainer}>
-          <TextInput style={styles.input} placeholderTx="loginPage.placeholderUser" />
-          <TextInput style={styles.input} secureTextEntry={true} placeholderTx="loginPage.placeholderPassword" />
+          <TextInput style={styles.input} onChangeText={setUser} placeholderTx="loginPage.placeholderUser" />
+          <TextInput style={styles.input} secureTextEntry={true} onChangeText={setPassword} placeholderTx="loginPage.placeholderPassword" />
         </View>
         <Button
           style={[styles.button]}
           color={'primary'}
           title="Iniciar Sesión"
+          disabled={isLoading}
+          isLoading={isLoading}
           onPress={logIn}
           textProps={{ style: styles.buttonText }}
         />
@@ -40,7 +41,7 @@ const LoginPage = ({ navigation }: any) => {
         </View>
         <Button
           style={styles.googleButton}
-          color={'background'}
+          color={'google'}
           tx="loginPage.googleButton"
           onPress={logInWithGoogle}
           textProps={{ style: styles.buttonTextGoogle }}
@@ -125,7 +126,6 @@ const styles = StyleSheet.create({
     width: '100%',
     borderColor: 'gray',
     borderWidth: 0.5,
-    backgroundColor: '#e86456',
     borderRadius: 15,
     marginBottom: spacing.tiny,
   },

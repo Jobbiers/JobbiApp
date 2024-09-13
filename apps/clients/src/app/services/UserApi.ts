@@ -1,23 +1,10 @@
-import axios from "../utils/axios";
-
+import { CreateUserDTO, LoginUserDTO, UserDTO } from '../store/interfaces';
+import axios from '../utils/axios';
 
 const path = '/user';
 
-interface UserRegisterInterface {
-  email: string;
-  name: string;
-  lastName: string;
-  password: string;
-}
-
-interface UserLogInInterface {
-  user?: string;
-  phone?: number;
-  password: string;
-}
-
 class UserApi {
-    async createUser(data: UserRegisterInterface) {
+  async createUser(data: CreateUserDTO): Promise<{data: UserDTO, status: number}> {
     try {
       const response = await axios.post(`${path}`, data);
       return response.data;
@@ -27,17 +14,16 @@ class UserApi {
     }
   }
 
-    async logIn(user: UserLogInInterface) {
+  async logIn(user: LoginUserDTO): Promise<{data: UserDTO, status: number}> {
     try {
-      console.log(axios.defaults.baseURL)
-      const response = await axios.post(`${path}/login`, user).catch()
+      const response = await axios.post(`${path}/login`, user);
       return response.data;
     } catch (error) {
       console.error('Error al loguear: ', error);
       throw error;
     }
   }
-    async updateUser(id: number, data: UserRegisterInterface) {
+  async updateUser(id: number, data: CreateUserDTO) {
     try {
       const response = await axios.put(`${path}/${id}`, data);
       return response.data;
@@ -47,7 +33,7 @@ class UserApi {
     }
   }
 
-    async deleteUser(id: number) {
+  async deleteUser(id: number) {
     try {
       const response = await axios.delete(`${path}/${id}`);
       return response.data;

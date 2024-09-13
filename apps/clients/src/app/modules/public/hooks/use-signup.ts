@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import UserApi from '../../../services/UserApi';
-import { setUserInfo } from '../../../store/slices/AppSlice';
 import { CreateUserDTO } from '../../../store/interfaces';
 import { validPassword, validString } from '@jobbi/ui/src/utils/validations';
 import { validEmail } from '../../../../../../../packages/ui/src/utils/validations';

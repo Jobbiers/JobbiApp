@@ -5,3 +5,4 @@ export { default as View } from './View';
 export { default as Icon, Icons } from './Icon';
 export { default as Root } from './Root';
 export { default as Pressable } from './Pressable';
+export { default as Loader } from './Loader';

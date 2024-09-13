@@ -33,6 +33,7 @@ export const es = {
         placeholderLastName: 'Apellido',
         placeholderEmail: 'Correo electrónico',
         placeholderPassword: 'Contraseña',
+        placeholderRepeatPassword: 'Repetir Contraseña',
         register: 'Registrarse',
         signUp: '¿Tienes cuenta? Inicia sesión'
     }

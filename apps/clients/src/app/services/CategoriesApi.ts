@@ -1,13 +1,23 @@
-import CategoryResponse from '../mocks/Category.response';
-import { Category } from '../interfaces/Category.interface';
+import axiosInstance from '../utils/axios';
+import { CategoryDTO, GetCategoriesProps } from '../store/interfaces';
 
-export const CategoriesApi = {
-  async getCategories() {
+class CategoriesApi {
+  public path = '/categories';
+
+  async getCategories({
+    limit,
+    search,
+  }: GetCategoriesProps): Promise<{ data: CategoryDTO[]; status: number | Error }> {
     try {
-      const resp: Category[] = CategoryResponse;
-      return resp;
+      let filter = '?';
+      if (limit) filter += `limit=${limit}&`;
+      if (search) filter += `search=${search}`;
+      const resp = await axiosInstance.get(`${this.path}${filter}`);
+      return resp.data;
     } catch (error) {
-      return null;
+      throw error;
     }
-  },
-};
+  }
+}
+
+export default CategoriesApi;

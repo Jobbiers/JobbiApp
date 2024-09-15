@@ -1,18 +1,18 @@
 import { Text, View } from '@jobbi/ui/src/components';
 import { memo } from 'react';
-import { FlatList, TouchableOpacity, StyleSheet, Dimensions } from 'react-native';
-import { Category } from '../../../interfaces/Category.interface';
+import { FlatList, StyleSheet } from 'react-native';
 import CardCategory from './CardCategory';
 import { defaultTheme } from '@jobbi/ui/src/theme';
 import { SkeletonCategoryCard } from './SkeletonCategoryCard';
+import { CategoryDTO } from '../../../store/interfaces';
 const { fontSizes, spacing } = defaultTheme;
-const { width } = Dimensions.get('screen');
 
 type props = {
-  list: Category[];
-  onPress: (item: Category) => void;
+  list: CategoryDTO[];
+  onPress: (item: CategoryDTO) => void;
   searchValue: string;
   skeletonSize?: number;
+  isLoading?: boolean;
 };
 
 const CategoriesListCards = ({
@@ -20,13 +20,15 @@ const CategoriesListCards = ({
   searchValue,
   onPress,
   skeletonSize = 8,
+  isLoading = true,
 }: props) => (
   <View style={styles.categoryContainer}>
     {searchValue && (
       <Text style={styles.categoryText}>Para "{searchValue}" se ha encontrado...</Text>
     )}
-    {list.length > 0 ? (
+    {!isLoading && list.length > 0 ? (
       <FlatList
+        contentContainerStyle={styles.categoryContainer}
         data={list}
         renderItem={({ item }) => <CardCategory onPress={onPress} item={item} />}
         keyExtractor={(item) => `${item.id}`}
@@ -44,10 +46,6 @@ const CategoriesListCards = ({
 );
 
 const styles = StyleSheet.create({
-  allCategoriesText: {
-    fontSize: fontSizes.body,
-    fontFamily: 'PublicSansBold',
-  },
   categoryText: {
     marginLeft: 20,
     fontSize: fontSizes.body,
@@ -56,9 +54,6 @@ const styles = StyleSheet.create({
   categoryContainer: {
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  containerSubTitle: {
-    marginTop: spacing.xl,
   },
   skeletonContainer: {
     flexDirection: 'row',

@@ -19,6 +19,9 @@ export type ColorsScheme = {
   ['background']: string;
   ['background-light']: string;
   ['background-dark']: string;
+  ['backgroundVariant']: string;
+  ['backgroundVariant-light']: string;
+  ['backgroundVariant-dark']: string;
   ['text']: string;
   ['text-light']: string;
   ['text-dark']: string;
@@ -67,6 +70,9 @@ export const defaultTheme: Theme = {
     background: '',
     'background-light': '',
     'background-dark': '',
+    backgroundVariant: '',
+    'backgroundVariant-light': '',
+    'backgroundVariant-dark': '',
     text: '',
     'text-light': '',
     'text-dark': '',
@@ -109,6 +115,7 @@ const lightTheme: Theme = {
     'google-dark': '#b85147',
     contrast: '#000000',
     background: '#f5f5f5',
+    backgroundVariant: '#E0E0E0',
     'background-light': '#ffffff',
     'background-dark': '#e0e0e0',
     text: '#000000',
@@ -130,6 +137,7 @@ const darkTheme: Theme = {
     'google-dark': '#b85147',
     contrast: '#ffffff',
     background: '#121a20',
+    backgroundVariant: '#E0E0E0',
     'background-light': '#1a2a30',
     'background-dark': '#000000',
     text: '#ffffff',

@@ -1,11 +1,12 @@
-import { Animated, Dimensions, Easing, StyleSheet } from 'react-native';
-import { defaultTheme } from '@jobbi/ui/src/theme';
+import { Animated, Dimensions, StyleSheet } from 'react-native';
+import { defaultTheme, useTheme } from '@jobbi/ui/src/theme';
 import { SkeletonAnimation } from '../../../utils/animations';
-const { fontSizes, spacing } = defaultTheme;
+const { spacing } = defaultTheme;
 const { width } = Dimensions.get('screen');
 
 export const SkeletonCategoryCard = () => {
   const opacity = SkeletonAnimation();
+  const { colors } = useTheme();
 
   return (
     <Animated.View
@@ -13,6 +14,7 @@ export const SkeletonCategoryCard = () => {
         styles.skeletonItem,
         {
           opacity: opacity,
+          backgroundColor: colors.backgroundVariant,
         },
       ]}
     />
@@ -20,34 +22,11 @@ export const SkeletonCategoryCard = () => {
 };
 
 const styles = StyleSheet.create({
-  allCategoriesText: {
-    fontSize: fontSizes.body,
-    fontFamily: 'PublicSansBold',
-  },
-  categoryText: {
-    marginLeft: spacing.lg,
-    fontSize: fontSizes.body,
-    fontWeight: '700',
-  },
-  categoryContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  containerSubTitle: {
-    marginTop: spacing.xl,
-  },
-  skeletonContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-around',
-  },
   skeletonItem: {
-    height: width * 0.22,
-    width: width * 0.22,
+    height: width * 0.2,
+    width: width * 0.2,
     marginHorizontal: spacing.xs,
     marginVertical: spacing.sm,
-    backgroundColor: '#E0E0E0',
-    margin: spacing.sm,
-    borderRadius: 8,
+    borderRadius: spacing.lg,
   },
 });

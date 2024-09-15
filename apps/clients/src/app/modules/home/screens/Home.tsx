@@ -2,15 +2,16 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { Text, View } from '@jobbi/ui/src/components';
 import useTheme from '@jobbi/ui/src/theme/useTheme';
 import { Header, CategoriesListCards } from '../components';
-import categories from '../../../mocks/Category.response';
 import { defaultTheme } from '@jobbi/ui/src/theme';
-import { Category } from '../../../interfaces/Category.interface';
+import { useHome } from '../hooks/use-home';
+import { CategoryDTO } from '../../../store/interfaces';
 const { fontSizes, spacing } = defaultTheme;
 
 const Home = ({ navigation }: any) => {
   const theme = useTheme();
+  const { categories, categoryLoader } = useHome(navigation);
 
-  const pressItem = (item: Category) => {
+  const pressItem = (item: CategoryDTO) => {
     navigation.navigate('CategoryDetail', { category: item });
   };
 
@@ -19,14 +20,19 @@ const Home = ({ navigation }: any) => {
   };
 
   return (
-    <View>
+    <View style={{ padding: theme.spacing.md }}>
       <Header />
       <View>
-        <CategoriesListCards list={categories} onPress={pressItem} searchValue="" />
         <View style={styles.mainContainer}>
           <TouchableOpacity style={styles.containerSubTitle} onPress={pressAll}>
             <Text style={styles.allCategoriesText} tx="categoryList.allCategories" />
           </TouchableOpacity>
+          <CategoriesListCards
+            list={categories}
+            isLoading={categoryLoader}
+            onPress={pressItem}
+            searchValue=""
+          />
         </View>
       </View>
     </View>
@@ -35,15 +41,15 @@ const Home = ({ navigation }: any) => {
 
 const styles = StyleSheet.create({
   mainContainer: {
-    justifyContent: 'center',
-    alignItems: 'center',
+    marginTop: spacing.xl,
   },
   allCategoriesText: {
     fontSize: fontSizes.body,
     fontFamily: 'PublicSansBold',
   },
   containerSubTitle: {
-    marginTop: spacing.xl,
+    marginHorizontal: spacing.sm,
+    alignSelf: 'flex-end',
   },
 });
 

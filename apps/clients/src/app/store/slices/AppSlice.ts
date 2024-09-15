@@ -1,10 +1,11 @@
-import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { UserStoreInit } from '../interfaces';
 
 // Initial state
-const initialState = {
+const initialState: UserStoreInit = {
   user: null,
   loading: false,
-  errorMessage: ''
+  errorMessage: '',
 };
 
 // Redux Toolkit createSlice
@@ -20,8 +21,8 @@ const authSlice = createSlice({
     },
     setLoading: (state, action: PayloadAction<boolean>) => {
       state.loading = action.payload;
-    }
-  }
+    },
+  },
 });
 
 // Extract the action creators

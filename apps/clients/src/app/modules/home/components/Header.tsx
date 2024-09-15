@@ -14,17 +14,21 @@ const Header = () => {
   };
 
   return (
-    <View style={{ padding: theme.spacing.md }}>
+    <View>
       <View style={styles.container}>
-        <Text style={styles.title} tx={'home.title'}/>
+        <Text style={styles.title} tx={'home.title'} />
         <TouchableOpacity onPress={pressButton}>
           <Icon type={Icons.Feather} name="message-circle" />
         </TouchableOpacity>
       </View>
       <View style={styles.userInfo}>
-        <Text style={styles.userText} tx='home.grettingsUser' txOptions={{username: user.name.split(' ')[0]}}></Text>
+        <Text
+          style={styles.userText}
+          tx="home.grettingsUser"
+          txOptions={{ username: user?.name }}
+        ></Text>
         <TouchableOpacity onPress={pressButton}>
-          <Text style={styles.addressText}>{user.address}</Text>
+          <Text style={styles.addressText}>{user?.address}</Text>
         </TouchableOpacity>
         <TextInput placeholderTx="home.placeholder" />
       </View>

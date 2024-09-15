@@ -22,3 +22,33 @@ export interface LoginUserDTO {
   email: string;
   password: string;
 }
+
+export interface GetCategoriesDTO {
+  limit: number;
+  search: string;
+}
+
+export interface GetCategoriesProps {
+  limit: number;
+  search: string;
+}
+
+export interface CategoryDTO {
+  id: number;
+  name: string;
+  // subCategory?: Category[];
+}
+
+// Store
+export type CategoriesStoreInit = {
+  categories: CategoryDTO[];
+  categorySelected: CategoryDTO | null;
+  categoryLoader: boolean;
+  errorMessage: string;
+};
+
+export type UserStoreInit = {
+  user: UserDTO | null;
+  loading: boolean;
+  errorMessage: string;
+};

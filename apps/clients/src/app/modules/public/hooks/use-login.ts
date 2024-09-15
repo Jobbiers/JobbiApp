@@ -29,12 +29,10 @@ export const useLogin = (navigation: any) => {
     // } catch (error) {
     //   console.log('Error signing in:', error);
     // }
-    console.log('Login con google que no funciona')
-    dispatch(addUser(user));
+    // dispatch(addUser(user));
   };
 
   const signUp = () => {
-    console.log('signUp');
     navigation.navigate('SignUpPage');
   };
 

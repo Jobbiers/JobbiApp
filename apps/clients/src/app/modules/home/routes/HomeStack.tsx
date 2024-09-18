@@ -3,6 +3,7 @@ import Home from '../screens/Home';
 import ProfessionalDetail from '../screens/ProfessionalDetail';
 import CategoriesList from '../screens/CategoriesList';
 import CategoryDetail from '../screens/CategoryDetail';
+import Search from '../screens/Search';
 import { HomeRootStackParamList } from './types/HomeStackTypes';
 import { useTheme } from '@jobbi/ui/src/theme';
 
@@ -18,6 +19,7 @@ const HomeStack = () => {
         headerTintColor: colors.text,
       }}
     >
+      <Stack.Screen name="Search" component={Search} />
       <Stack.Screen name="Home" component={Home} options={() => ({ headerShown: false })} />
       <Stack.Screen
         name="Categories"

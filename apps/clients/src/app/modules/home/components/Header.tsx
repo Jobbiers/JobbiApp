@@ -5,7 +5,12 @@ import { defaultTheme } from '@jobbi/ui/src/theme';
 import useTheme from '@jobbi/ui/src/theme/useTheme';
 const { fontSizes, spacing } = defaultTheme;
 
-const Header = () => {
+interface HeaderProps {
+  onPressTextInput?: () => void;
+}
+
+
+const Header = ({onPressTextInput}: HeaderProps) => {
   const theme = useTheme();
   const { user } = useAppSelector((state) => state.auth);
 
@@ -30,7 +35,7 @@ const Header = () => {
         <TouchableOpacity onPress={pressButton}>
           <Text style={styles.addressText}>{user?.address}</Text>
         </TouchableOpacity>
-        <TextInput placeholderTx="home.placeholder" />
+        <TextInput placeholderTx="home.placeholder" onPressIn={onPressTextInput} />
       </View>
     </View>
   );

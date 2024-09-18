@@ -20,8 +20,13 @@ export const useHome = (navigation: any) => {
     }
   };
 
+  const openSearchScreen = () => {
+    navigation.navigate('Search');
+  };
+
   return {
     categories,
     categoryLoader,
+    openSearchScreen
   };
 };

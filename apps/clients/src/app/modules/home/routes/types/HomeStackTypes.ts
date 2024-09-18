@@ -1,8 +1,9 @@
-import { Category } from "../../../../interfaces/Category.interface";
+import { CategoryDTO } from '../../../../store/interfaces/index';
 
 export type HomeRootStackParamList = {
     Home: undefined;
+    Search: undefined;
     Categories: undefined;
-    CategoryDetail: { category: Category };
+    CategoryDetail: { category: CategoryDTO };
     ProfessionalDetail: undefined;
   };

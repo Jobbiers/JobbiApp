@@ -9,7 +9,7 @@ const { fontSizes, spacing } = defaultTheme;
 
 const Home = ({ navigation }: any) => {
   const theme = useTheme();
-  const { categories, categoryLoader } = useHome(navigation);
+  const { categories, categoryLoader, openSearchScreen } = useHome(navigation);
 
   const pressItem = (item: CategoryDTO) => {
     navigation.navigate('CategoryDetail', { category: item });
@@ -21,7 +21,7 @@ const Home = ({ navigation }: any) => {
 
   return (
     <View style={{ padding: theme.spacing.md }}>
-      <Header />
+      <Header onPressTextInput={openSearchScreen} />
       <View>
         <View style={styles.mainContainer}>
           <TouchableOpacity style={styles.containerSubTitle} onPress={pressAll}>

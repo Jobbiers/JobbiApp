@@ -10,7 +10,7 @@ const user = {
   address: 'Ecuador 258, Alta Gracia, Cordoba',
 };
 
-export const useLogin = (navigation: any) => {
+export const useLogin = ({navigation}: any) => {
   const userApi = new UserApi();
   const dispatch = useAppDispatch();
   const { userText, password, isLoading } = useAppSelector((state) => state.login);

@@ -21,6 +21,6 @@ export const Routes = () => {
     loading ? 
     <Loader />
     :
-    <NavigationContainer theme={{ ...navTheme }}>{user ? <PrivateRoutes /> : <AuthRoutes />}</NavigationContainer>
+    <NavigationContainer theme={{ ...navTheme }}>{ <PrivateRoutes />}</NavigationContainer>
   );
 };

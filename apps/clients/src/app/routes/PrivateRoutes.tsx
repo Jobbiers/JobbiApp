@@ -7,6 +7,7 @@ import HomeStack from '../modules/home/routes/HomeStack';
 import useTheme from '@jobbi/ui/src/theme/useTheme';
 import { logOut } from '../modules/public/actions/userActions';
 import { useAppDispatch } from '../store/hooks';
+import ProfessionalDetail from '../modules/home/screens/ProfessionalDetail';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -19,9 +20,9 @@ const ExampleComponent = () => {
 const AccountStack = () => (
   <Stack.Navigator initialRouteName="Account">
     <Stack.Screen
-      name="example"
-      component={ExampleComponent}
-      options={() => ({ headerShown: false })}
+      name="professionalDetail"
+      component={ProfessionalDetail}
+      options={{ headerShown: true, headerTitle: 'Detalle del profesional' }}
     />
     <Stack.Screen
       name="example1"
@@ -82,22 +83,25 @@ export const PrivateRoutes = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <Tab.Navigator
         initialRouteName="HomeStack"
-        screenOptions={() => ({
-          tabBarStyle: {
-            backgroundColor: colors.background,
-            position: 'absolute',
-            bottom: 16,
-            right: 16,
-            left: 16,
-            height: 70,
-            shadowColor: 'black',
-            shadowRadius: 20,
-            borderRadius: 50,
-            shadowOpacity: 0.1,
-            justifyContent: 'center',
-            alignItems: 'center',
-          },
-        })}
+        screenOptions={({ route }) => {
+          return ({
+            tabBarStyle: {
+              display: route.name !== 'HomeStack' ? 'none' : 'flex',
+              backgroundColor: colors.background,
+              position: 'absolute',
+              bottom: 16,
+              right: 16,
+              left: 16,
+              height: 70,
+              shadowColor: 'black',
+              shadowRadius: 20,
+              borderRadius: 50,
+              shadowOpacity: 0.1,
+              justifyContent: 'center',
+              alignItems: 'center',
+            },
+          })
+        }}
       >
         {pages.map((page, index) => {
           return (

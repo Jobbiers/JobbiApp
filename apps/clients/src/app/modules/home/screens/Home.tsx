@@ -28,7 +28,7 @@ const Home = ({ navigation }: any) => {
             <Text style={styles.allCategoriesText} tx="categoryList.allCategories" />
           </TouchableOpacity>
           <CategoriesListCards
-            list={categories}
+            list={categories.slice(0, 8)}
             isLoading={categoryLoader}
             onPress={pressItem}
             searchValue=""

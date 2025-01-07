@@ -5,6 +5,10 @@ import { onAuthStateChanged } from 'firebase/auth';
 const axiosInstance: AxiosInstance = axios.create({
   baseURL: process.env.API_URL, // URL base de la API
   timeout: 10000, // Tiempo de espera antes de que se lance un error de timeout
+  headers: {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    'Accept': 'application/json'
+  },
 });
 
 axiosInstance.interceptors.request.use(

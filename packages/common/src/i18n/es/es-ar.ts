@@ -8,6 +8,11 @@ export const es = {
         grettingsUser: 'Hola, {{username}} !',
         placeholder: 'Buscar'
     },
+    search: {
+        placeHolderInput: 'Buscar profiesional o categorias',
+        searchedValue: 'Resultados para "{{search}}"',
+        placeholder: ''
+    },
     categoryList: {
         allCategories: 'Ver todas las categorias',
         placeholder: 'Buscar categoria',

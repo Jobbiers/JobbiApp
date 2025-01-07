@@ -13,7 +13,7 @@ import { useSignup } from '../hooks/use-signup';
 const { fontSizes, spacing } = defaultTheme;
 const image = require('../../../../../assets/image.png');
 
-const SignUpPage = ( navigation : any) => {
+const SignUpPage = ({ navigation }: any) => {
   const { colors } = useTheme();
   const {
     goLogin,

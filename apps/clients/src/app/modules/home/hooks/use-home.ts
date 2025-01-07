@@ -9,7 +9,7 @@ export const useHome = (navigation: any) => {
   const [search, setSearch] = useState('');
 
   useEffect(() => {
-    fetchCategoriesPanel(8, '');
+    fetchCategoriesPanel(0, '');
   }, []);
 
   const fetchCategoriesPanel = async (limit: number, search: string) => {

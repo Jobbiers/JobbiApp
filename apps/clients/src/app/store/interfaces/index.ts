@@ -52,3 +52,17 @@ export type UserStoreInit = {
   loading: boolean;
   errorMessage: string;
 };
+
+export interface ProfessionalDTO {
+  name: string;
+  lastName: string;
+  description: string;
+  email: string;
+  profileImageUrl: string;
+}
+
+export interface GetProfessionalsProps {
+  limit?: number;
+  search?: string;
+  categoryId?: number[];
+}

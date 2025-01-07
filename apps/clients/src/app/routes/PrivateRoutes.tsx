@@ -82,9 +82,10 @@ export const PrivateRoutes = () => {
     <SafeAreaView style={{ flex: 1 }}>
       <Tab.Navigator
         initialRouteName="HomeStack"
-        screenOptions={() => ({
+        screenOptions={({route}) => ({
           tabBarStyle: {
             backgroundColor: colors.background,
+            display: 'flex',
             position: 'absolute',
             bottom: 16,
             right: 16,

@@ -6,7 +6,7 @@ import { validEmail } from '../../../../../../../packages/ui/src/utils/validatio
 import { signUpUser } from '../actions/userActions';
 import { useAppDispatch } from '../../../store/hooks';
 
-export const useSignup = ({ navigation }: any) => {
+export const useSignup = (navigation: any) => {
   const userApi = new UserApi();
   const dispatch = useAppDispatch();
   const [loading, setLoading] = useState(false);

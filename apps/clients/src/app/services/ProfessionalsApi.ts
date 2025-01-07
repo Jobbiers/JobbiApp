@@ -1,13 +1,18 @@
-import { Professional } from '../interfaces/Professional.interface';
-import ProfessionalsResponse from '../mocks/Professionals.response';
+import { GetProfessionalsProps, ProfessionalDTO } from '../store/interfaces';
+import axiosInstance from '../utils/axios';
 
-export const ProfessionalsApi = {
-  async getProfessionals() {
+export class ProfessionalsApi {
+  public path = '/professionals';
+  async getProfessionals({limit = 5, search = '', categoryId = []}: GetProfessionalsProps): Promise<{ data: ProfessionalDTO[]; status: number | Error }> {
     try {
-      const resp: Professional[] = ProfessionalsResponse;
-      return resp;
+      let filter = '?';
+      if (limit) filter += `limit=${limit}&`;
+      if (search) filter += `search=${search}&`;
+      if (categoryId.length) filter += `categoryId=${categoryId}`; 
+      const resp = await axiosInstance.get(`${this.path}?${filter}`);
+      return resp.data;
     } catch (error) {
-      return null;
+      throw error;
     }
-  },
+  }
 };

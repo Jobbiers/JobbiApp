@@ -9,8 +9,7 @@ interface HeaderProps {
   onPressTextInput?: () => void;
 }
 
-
-const Header = ({onPressTextInput}: HeaderProps) => {
+const Header = ({ onPressTextInput }: HeaderProps) => {
   const theme = useTheme();
   const { user } = useAppSelector((state) => state.auth);
 
@@ -35,7 +34,7 @@ const Header = ({onPressTextInput}: HeaderProps) => {
         <TouchableOpacity onPress={pressButton}>
           <Text style={styles.addressText}>{user?.address}</Text>
         </TouchableOpacity>
-        <TextInput placeholderTx="home.placeholder" onPressIn={onPressTextInput} />
+        <TextInput placeholderTx="home.placeholder" onPressIn={onPressTextInput} editable={false} />
       </View>
     </View>
   );
